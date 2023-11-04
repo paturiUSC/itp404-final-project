@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import React from "react"; 
+import "../CSS/NavBar.css"
 
 export default function Navigation() {
 
@@ -8,9 +9,9 @@ export default function Navigation() {
       };
 
     return (
-        <nav className="navbar navbar-expand-lg mb-5" style={{"borderBottom": "1px solid #333"}}>
+        <nav className="navbar navbar-expand-lg mb-5" style={{"borderBottom": "1px solid #F0F0F0"}}>
           <div className="container-fluid">
-            <NavLink to="/" className="navbar-brand">
+            <NavLink to="/" className="navbar-brand custom-main-button">
               UniNest
             </NavLink>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
