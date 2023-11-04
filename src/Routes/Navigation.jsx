@@ -1,29 +1,34 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import React from "react"; 
 
 export default function Navigation() {
 
+    const activeStyle = {
+        color: 'red'
+      };
+
     return (
-        <nav className="navbar navbar-expand-lg bg-light mb-2">
+        <nav className="navbar navbar-expand-lg mb-5" style={{"borderBottom": "1px solid #333"}}>
           <div className="container-fluid">
-            <Link to="/" className="navbar-brand">
+            <NavLink to="/" className="navbar-brand">
               UniNest
-            </Link>
+            </NavLink>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link to="/listings" className="nav-link">
+                  <NavLink to="/listings" className="nav-link">
                     Listings
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link to="/bookmarks" className="nav-link">
+                  <NavLink to="/bookmarks" className="nav-link">
                     Bookmarks
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link to="/writeReview" className="nav-link">
+                  <NavLink to="/writeReview" className="nav-link">
                     Write a Review
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>
