@@ -4,6 +4,24 @@
     color: black;
 }
 
+.btn-format {
+    background-color: #A020F0;
+    border-color: #A020F0;
+    margin: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 14px;
+}
+
+.first-body {
+    padding-bottom: 0;
+}
+
+.second-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 .custom-link {
     font-size: 18px;
 }

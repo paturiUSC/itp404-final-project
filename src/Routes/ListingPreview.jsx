@@ -22,7 +22,7 @@ export default function ListingPreview(props)
             <div className="card fixed-card">
                 <Link to={`/listings/${props.id}`} className="custom-preview-decoration">
                 <img src={props.propertyImg} className="card-img-top fixed-image" alt="Listing Image" />
-                <div className="card-body d-flex flex-column">
+                <div className="card-body d-flex flex-column first-body">
                     <div className="d-flex justify-content-between">
                         <div>
                             <p className="card-title custom-link">{splitAddress()[0]}</p>
@@ -31,9 +31,16 @@ export default function ListingPreview(props)
                         <p className="card-title custom-link other-description"><span className="other-description-info">${props.rent}</span></p>
                     </div>
                     <p className="card-text other-description">Distance From Village: <span className="other-description-info">{props.distance}</span></p>
-                    <p className="card-text other-description ">Bedrooms: <span className="other-description-info">{props.bedrooms}</span> | Bathrooms: <span className="other-description-info">{props.bathrooms}</span></p>
                 </div>
                 </Link>
+                <div className="second-body card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <p className="card-text other-description ">Bedrooms: <span className="other-description-info">{props.bedrooms}</span> | Bathrooms: <span className="other-description-info">{props.bathrooms}</span></p>
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-format">
+                        Bookmark
+                    </button>
+                </div>
             </div>
         </div>
     );

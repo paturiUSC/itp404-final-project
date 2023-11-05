@@ -12,7 +12,6 @@ import Bookmarks from './Routes/Bookmarks';
 import WriteReview from './Routes/WriteReview';
 import Listings from './Routes/Listings';
 import CompleteListing from './Routes/CompleteListing';
-import { toBeRequired } from '@testing-library/jest-dom/dist/matchers';
 
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 

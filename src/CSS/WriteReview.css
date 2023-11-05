@@ -1,0 +1,40 @@
+.custom-bg-button {
+    border-color: black; 
+    color: black; 
+    background-color: white;
+}
+
+.custom-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.highlight-values {
+    font-weight: bold;
+}
+
+.btn-color {
+    background-color: #A020F0;
+    border-color: #A020F0;
+}
+
+h1 {
+   text-align: center;
+   color: #A020F0;
+}
+
+form {
+    /* background: #f1f1f1; */
+   max-width: 600px;
+   text-align: center;
+   margin: 20px auto;
+  
+  input, textarea {
+     border:0; outline:0;
+     padding: 1em;
+     display: block;
+     width: 100%;
+     margin-top: 1em;
+     font-family: 'Open sans', sans-serif;
+     resize: none;
+  }
+}
