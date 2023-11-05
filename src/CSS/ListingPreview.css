@@ -1,0 +1,27 @@
+.custom-preview-decoration {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+}
+
+.custom-link {
+    font-size: 18px;
+}
+
+.other-description {
+    font-size: 14px;
+}
+
+.other-description-info {
+    font-weight: bold;
+}
+
+.fixed-image {
+    /* width: 414px; */
+    height: 250px; 
+    object-fit: cover; 
+}
+
+.fixed-card {
+    height: 410px;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -12,7 +11,10 @@ import Root from './Routes/Root';
 import Bookmarks from './Routes/Bookmarks';
 import WriteReview from './Routes/WriteReview';
 import Listings from './Routes/Listings';
+import CompleteListing from './Routes/CompleteListing';
+import { toBeRequired } from '@testing-library/jest-dom/dist/matchers';
 
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
 const router = createBrowserRouter([
   {
@@ -26,15 +28,59 @@ const router = createBrowserRouter([
       }, 
       {
         path: "/listings", 
-        element: <Listings />
+        element: <Listings />, 
+        loader() {
+          return fetch(
+            `${baseUrl}/listings`
+          ).then((response) => {
+            return response.json();
+          })
+        }
       },
       {
         path: "/bookmarks", 
-        element: <Bookmarks />
+        element: <Bookmarks />, 
+        loader(loaderData) {
+          return fetch(
+            `${baseUrl}/listings`
+          ).then((response) => {
+            return response.json();
+          }).then((listings) => {
+            const correctListings = listings.filter((listing) => {
+              return listing.bookmarked === true;
+            })
+
+            return correctListings;
+          })
+        }
       }, 
       {
         path: "/writeReview", 
-        element: <WriteReview />
+        element: <WriteReview />, 
+        loader() {
+          return fetch(
+            `${baseUrl}/listings`
+          ).then((response) => {
+            return response.json();
+          })
+        }
+      }, 
+      {
+        path: "/listings/:listingId", 
+        element: <CompleteListing />, 
+        loader(loaderData) {
+          return fetch(
+            `${baseUrl}/listings`
+          ).then((response) => {
+            return response.json();
+          }).then((listings) => {
+            const correctListing = listings.filter((listing) => {
+              return parseInt(listing.listingId) === parseInt(loaderData.params.listingId);
+            })
+
+            return correctListing[0];
+          })
+        }
       }
     ]
   }

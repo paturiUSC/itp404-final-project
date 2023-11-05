@@ -4,16 +4,23 @@ import "../CSS/NavBar.css"
 
 export default function Navigation() {
 
-    const activeStyle = {
-        color: 'red'
-      };
-
     return (
-        <nav className="navbar navbar-expand-lg mb-5" style={{"borderBottom": "1px solid #F0F0F0"}}>
+        <nav className="navbar navbar-expand-lg mb-2 custom-font">
           <div className="container-fluid">
             <NavLink to="/" className="navbar-brand custom-main-button">
               UniNest
             </NavLink>
+            <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <span className="navbar-toggler-icon"></span>
+            </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">

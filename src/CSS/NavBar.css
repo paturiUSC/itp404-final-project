@@ -1,3 +1,9 @@
 .custom-main-button {
     color: #A020F0;
+    font-weight: bold;
+}
+
+.custom-font {
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 1px solid #F0F0F0;
 }

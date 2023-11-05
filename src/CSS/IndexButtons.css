@@ -2,4 +2,8 @@
     border-color: black; 
     color: black; 
     background-color: white;
-  }
+}
+
+.custom-font {
+    font-family: 'Open Sans', sans-serif;
+}
