@@ -61,12 +61,12 @@ export default function ReviewProto()
             </div>) : 
             (<form onSubmit={(event) => {
             event.preventDefault();
-            
+
             setIsSubmitted(true);
             const currentTimestamp = new Date().getTime();
             setTimeSubmitted(currentTimestamp);
         }}>
-            <h1 className="mb-4">Write a Review</h1>
+            <h1 className="mb-4 review-header">Write a Review</h1>
 
             <div className="my-3">
                 <label htmlFor="property-selection" className="form-label">Property Name</label>
@@ -74,7 +74,7 @@ export default function ReviewProto()
                     setPropertyName(event.target.value);
                 }}>
                     {loadedListings.map((listing) => {
-                        return <option key={listing.listingId} value={listing.listingId}>{listing.title}</option>
+                        return <option key={listing.id} value={listing.id}>{listing.title}</option>
                     })}
                 </select>
                 <div className="invalid-feedback">

@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
 
 import Index from './Routes/Index';
@@ -69,15 +70,9 @@ const router = createBrowserRouter([
         element: <CompleteListing />, 
         loader(loaderData) {
           return fetch(
-            `${baseUrl}/listings`
+            `${baseUrl}/listings/${loaderData.params.listingId}?_embed=reviews`
           ).then((response) => {
             return response.json();
-          }).then((listings) => {
-            const correctListing = listings.filter((listing) => {
-              return parseInt(listing.listingId) === parseInt(loaderData.params.listingId);
-            })
-
-            return correctListing[0];
           })
         }
       }

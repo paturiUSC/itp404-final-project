@@ -2,10 +2,49 @@
     margin: 0;
 }
 
+.back-button {
+    color: black;
+    align-items: center;
+    display: 'flex';
+    text-decoration: none;
+}
+
+.view-listings {
+    margin-left: 0.25em;
+}
+
 .description-styling {
     font-size: 22px;
 }
 
 .font-styling {
     font-family: 'Open Sans', sans-serif;
+}
+
+.img-height {
+    max-height: 497px;
+}
+
+.btn-color {
+    background-color: #A020F0;
+    border-color: #A020F0;
+}
+
+.reviews-header {
+    color: #A020F0;
+    align-items: start;
+}
+
+.review-written {
+    font-size: 12px;
+}
+
+.reviewer-class {
+    font-size: 14px;
+}
+
+.custom-bg-button {
+    border-color: black; 
+    color: black; 
+    background-color: white;
 }

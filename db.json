@@ -1,7 +1,7 @@
 {
     "listings": [
       {
-        "listingId": 1,
+        "id": "1",
         "title": "The Lorenzo - Luxurious Apartments near USC",
         "bedrooms": 2,
         "bathrooms": 2,
@@ -14,7 +14,7 @@
         "bookmarked": true
       },
       {
-        "listingId": 2,
+        "id": "2",
         "title": "The Orion - Single-Unit Housing with a View of Downtown",
         "bedrooms": 6,
         "bathrooms": 4.5,
@@ -27,7 +27,7 @@
         "bookmarked": false
       }, 
       {
-        "listingId": 3,
+        "id": "3",
         "title": "Tripalink - Affordable Apartments at USC",
         "bedrooms": 1,
         "bathrooms": 1,
@@ -40,7 +40,7 @@
         "bookmarked": false
       },
       {
-        "listingId": 4,
+        "id": "4",
         "title": "90007 Rentals",
         "bedrooms": 3,
         "bathrooms": 1,
@@ -55,8 +55,8 @@
     ],
     "reviews": [
       {
-        "reviewId": 1,
-        "listingId": 1,
+        "id": "1",
+        "listingId": "1",
         "reviewerName": "Jack Smith",
         "reviewerClass": "Sophomore",
         "rating": 3.5,
@@ -64,8 +64,8 @@
         "timestamp": 1531101239011
       },
       {
-        "reviewId": 2,
-        "listingId": 2,
+        "id": "2",
+        "listingId": "2",
         "reviewerName": "Jack Son",
         "reviewerClass": "Junior",
         "rating": 5,
@@ -73,8 +73,8 @@
         "timestamp": 1636019754000
       }, 
       {
-        "reviewId": 3,
-        "listingId": 1,
+        "id": "3",
+        "listingId": "1",
         "reviewerName": "Louie Smith",
         "reviewerClass": "Senior",
         "rating": 4,
