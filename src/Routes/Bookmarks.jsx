@@ -2,6 +2,7 @@ import { useLoaderData, NavLink } from "react-router-dom";
 import { useState } from "react";
 import ListingPreview from "./ListingPreview";
 import { saveBookmark } from "../api";
+import "../CSS/Bookmarks.css";
 
 export default function Bookmarks()
 {
@@ -11,7 +12,7 @@ export default function Bookmarks()
     const [listings, setListings] = useState(loadedListings);
 
     return (
-        <div className="container custom-font">
+        <div className="container custom-font-bookmarks">
             {
                 listings.length > 0 ? (
                     <div className="row">

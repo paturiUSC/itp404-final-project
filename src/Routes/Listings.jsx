@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import ListingPreview from "./ListingPreview";
 import { saveBookmark } from "../api";
+import "../CSS/Listings.css";
 
 export default function Listings()
 {
@@ -10,39 +11,10 @@ export default function Listings()
 
     const [listings, setListings] = useState(loadedListings);
 
-    // function listOfListings() 
-    // {
-    //     const listOfListingPreviewObjects = listings.map((listing) => {
-    //         return (
-    //             <ListingPreview key={listing.id} id={listing.id} address={listing.address} bedrooms={listing.bedrooms} bathrooms={listing.bathrooms} rent={listing.rent} propertyImg={listing.propertyImageURL} distance={listing.distanceFromVillage} bookmarked={listing.bookmarked}/>
-    //         );
-    //     })
-
-    //     return listOfListingPreviewObjects;
-    // }
-
-    // function returnRows() 
-    // {
-    //     const listingsList = listOfListings();
-    //     const rowsOfListings = [];
-
-    //     for (let i = 0; i < listingsList.length; i += 3) {
-    //         const listingRow = (
-    //             <div className="row" key={listingsList[i].props.id}>
-    //                 {listingsList[i]}
-    //                 {listingsList[i + 1]}
-    //                 {listingsList[i + 2]}
-    //             </div>
-    //         );
-    //         rowsOfListings.push(listingRow);
-    //     }
-    //     return rowsOfListings;
-    // }
-
     return (
-        <div className="container">
+        <div className="container custom-font-listings">
             <div className="row">
-                    {listings.map((listing, index) => (
+                    {listings.map((listing) => (
                         <ListingPreview
                             key={listing.id} id={listing.id} address={listing.address} bedrooms={listing.bedrooms} bathrooms={listing.bathrooms} rent={listing.rent} propertyImg={listing.propertyImageURL} distance={listing.distanceFromVillage} bookmarked={listing.bookmarked} onClick={(listingId) => {
                                 const updatedBookmarkData = {

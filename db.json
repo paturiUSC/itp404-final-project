@@ -11,7 +11,7 @@
       "inUnitLaundry": false,
       "address": "325 W Adams Blvd, Los Angeles, CA 90007",
       "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "id": "2",
@@ -24,7 +24,7 @@
       "inUnitLaundry": true,
       "address": "10573 W Pico Blvd, Los Angeles, CA 90064",
       "propertyImageURL": "https://lirp.cdn-website.com/951f8cd2/dms3rep/multi/opt/Living+Room+3-432w.jpeg",
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "id": "3",
@@ -50,7 +50,7 @@
       "inUnitLaundry": true,
       "address": "1436 W 36th Pl, Los Angeles, CA 90007",
       "propertyImageURL": "https://90007rentals.com/images/1188_front.jpg",
-      "bookmarked": false
+      "bookmarked": true
     }
   ],
   "reviews": [
