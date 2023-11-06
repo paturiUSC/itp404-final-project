@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import "../CSS/ListingPreview.css";
+import { useState } from "react";
+import { saveBookmark } from "../api";
 
 export default function ListingPreview(props)
 {
+    const [bookmark, setBookmark] = useState(props.bookmarked);
+
     function splitAddress() 
     {
         const splitAddressInfo = [];
@@ -37,7 +41,14 @@ export default function ListingPreview(props)
                     <div>
                         <p className="card-text other-description ">Bedrooms: <span className="other-description-info">{props.bedrooms}</span> | Bathrooms: <span className="other-description-info">{props.bathrooms}</span></p>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-format">
+                    <button type="submit" className="btn btn-primary btn-format"  onClick={() => {
+                        const updatedBookmarkData = {
+                            "bookmarked": bookmark ? false : true
+                        };
+
+                        saveBookmark(props.id, updatedBookmarkData);
+                        setBookmark(bookmark ? false : true);
+                    }}>
                         Bookmark
                     </button>
                 </div>

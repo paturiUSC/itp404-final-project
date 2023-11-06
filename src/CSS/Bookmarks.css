@@ -1,0 +1,9 @@
+.custom-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.custom-bg-button {
+    border-color: black; 
+    color: black; 
+    background-color: white;
+}

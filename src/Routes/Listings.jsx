@@ -11,7 +11,7 @@ export default function Listings()
     {
         const listOfListingPreviewObjects = listings.map((listing) => {
             return (
-                <ListingPreview key={listing.id} id={listing.id} address={listing.address} bedrooms={listing.bedrooms} bathrooms={listing.bathrooms} rent={listing.rent} propertyImg={listing.propertyImageURL} distance={listing.distanceFromVillage}/>
+                <ListingPreview key={listing.id} id={listing.id} address={listing.address} bedrooms={listing.bedrooms} bathrooms={listing.bathrooms} rent={listing.rent} propertyImg={listing.propertyImageURL} distance={listing.distanceFromVillage} bookmarked={listing.bookmarked}/>
             );
         })
 

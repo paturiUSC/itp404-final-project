@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, NavLink } from "react-router-dom";
 import { useState } from "react";
 import ListingPreview from "./ListingPreview";
 
@@ -39,9 +39,21 @@ export default function Bookmarks()
     const [listings, setListings] = useState(loadedListings);
 
     return (
-        <div className="container">
+        <div className="container custom-font">
             {
-                returnRows()
+                listings.length > 0 ? (
+                    returnRows()
+                    ) : (
+                        <div>
+                            <h4 className="mt-5">No properties have been bookmarked yet. </h4>
+                            <h5 className="mt-4">View some properties. Bookmark your favorites to view them later!</h5>
+                            <NavLink to="/listings">
+                                <button type="submit" className="btn btn-secondary my-3 mb-5 custom-bg-button">
+                                    View Listings
+                                </button>
+                            </NavLink>
+                        </div>
+                    )
             }
         </div>
     );

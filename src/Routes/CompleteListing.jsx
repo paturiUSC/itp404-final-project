@@ -1,12 +1,15 @@
 import { useLoaderData, NavLink } from "react-router-dom";
 import "../CSS/CompleteListing.css";
-import React from "react";
+import React, { useState } from "react";
 import { ArrowLeftCircle } from 'react-bootstrap-icons';
+import { saveBookmark } from "../api";
 
 export default function CompleteListing() 
 {
     const loadedListing = useLoaderData();
     console.log(loadedListing);
+
+    const [bookmark, setBookmark] = useState(loadedListing.bookmarked);
 
     function splitAddress() 
     {
@@ -131,7 +134,14 @@ export default function CompleteListing()
                         }
 
                     </div>
-                    <button className="btn btn-primary btn-color btn-lg mt-4 mb-5" id="bookmark">Bookmark</button>
+                    <button className="btn btn-primary btn-color btn-lg mt-4 mb-5" id="bookmark" onClick={() => {
+                        const updatedBookmarkData = {
+                            "bookmarked": bookmark ? false : true
+                        };
+
+                        saveBookmark(loadedListing.id, updatedBookmarkData);
+                        setBookmark(bookmark ? false : true);
+                    }}>Bookmark</button>
                 </div>
             </div>
         </div>

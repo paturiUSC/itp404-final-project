@@ -1,85 +1,85 @@
 {
-    "listings": [
-      {
-        "id": "1",
-        "title": "The Lorenzo - Luxurious Apartments near USC",
-        "bedrooms": 2,
-        "bathrooms": 2,
-        "rent": 1340,
-        "distanceFromVillage": 1.2,
-        "shryftZone": true,
-        "inUnitLaundry": false, 
-        "address": "325 W Adams Blvd, Los Angeles, CA 90007",
-        "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
-        "bookmarked": true
-      },
-      {
-        "id": "2",
-        "title": "The Orion - Single-Unit Housing with a View of Downtown",
-        "bedrooms": 6,
-        "bathrooms": 4.5,
-        "rent": 1100,
-        "distanceFromVillage": 0.73,
-        "shryftZone": false,
-        "inUnitLaundry": true, 
-        "address": "10573 W Pico Blvd, Los Angeles, CA 90064",
-        "propertyImageURL": "https://lirp.cdn-website.com/951f8cd2/dms3rep/multi/opt/Living+Room+3-432w.jpeg",
-        "bookmarked": false
-      }, 
-      {
-        "id": "3",
-        "title": "Tripalink - Affordable Apartments at USC",
-        "bedrooms": 1,
-        "bathrooms": 1,
-        "rent": 1240,
-        "distanceFromVillage": 0.2,
-        "shryftZone": true,
-        "inUnitLaundry": false, 
-        "address": "1188 W 36th Pl, Los Angeles, CA 90007",
-        "propertyImageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/-LZ3tiey30rmCa7ucIWK6A/348s.jpg",
-        "bookmarked": false
-      },
-      {
-        "id": "4",
-        "title": "90007 Rentals",
-        "bedrooms": 3,
-        "bathrooms": 1,
-        "rent": 2870,
-        "distanceFromVillage": 0.1,
-        "shryftZone": true,
-        "inUnitLaundry": true, 
-        "address": "1436 W 36th Pl, Los Angeles, CA 90007",
-        "propertyImageURL": "https://90007rentals.com/images/1188_front.jpg",
-        "bookmarked": true
-      }
-    ],
-    "reviews": [
-      {
-        "id": "1",
-        "listingId": "1",
-        "reviewerName": "Jack Smith",
-        "reviewerClass": "Sophomore",
-        "rating": 3.5,
-        "reviewText": "Great location but there are no laundry facilities. Not overly pricey for the luxury.", 
-        "timestamp": 1531101239011
-      },
-      {
-        "id": "2",
-        "listingId": "2",
-        "reviewerName": "Jack Son",
-        "reviewerClass": "Junior",
-        "rating": 5,
-        "reviewText": "Spacious house with a beautiful view of downtown! Cost-effective!", 
-        "timestamp": 1636019754000
-      }, 
-      {
-        "id": "3",
-        "listingId": "1",
-        "reviewerName": "Louie Smith",
-        "reviewerClass": "Senior",
-        "rating": 4,
-        "reviewText": "No in-unit laundry but very close to campus! Good property management too.", 
-        "timestamp": 1639019757023
-      }
-    ]
-  }
+  "listings": [
+    {
+      "id": "1",
+      "title": "The Lorenzo - Luxurious Apartments near USC",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "rent": 1340,
+      "distanceFromVillage": 1.2,
+      "shryftZone": true,
+      "inUnitLaundry": false,
+      "address": "325 W Adams Blvd, Los Angeles, CA 90007",
+      "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
+      "bookmarked": false
+    },
+    {
+      "id": "2",
+      "title": "The Orion - Single-Unit Housing with a View of Downtown",
+      "bedrooms": 6,
+      "bathrooms": 4.5,
+      "rent": 1100,
+      "distanceFromVillage": 0.73,
+      "shryftZone": false,
+      "inUnitLaundry": true,
+      "address": "10573 W Pico Blvd, Los Angeles, CA 90064",
+      "propertyImageURL": "https://lirp.cdn-website.com/951f8cd2/dms3rep/multi/opt/Living+Room+3-432w.jpeg",
+      "bookmarked": false
+    },
+    {
+      "id": "3",
+      "title": "Tripalink - Affordable Apartments at USC",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "rent": 1240,
+      "distanceFromVillage": 0.2,
+      "shryftZone": true,
+      "inUnitLaundry": false,
+      "address": "1188 W 36th Pl, Los Angeles, CA 90007",
+      "propertyImageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/-LZ3tiey30rmCa7ucIWK6A/348s.jpg",
+      "bookmarked": false
+    },
+    {
+      "id": "4",
+      "title": "90007 Rentals",
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "rent": 2870,
+      "distanceFromVillage": 0.1,
+      "shryftZone": true,
+      "inUnitLaundry": true,
+      "address": "1436 W 36th Pl, Los Angeles, CA 90007",
+      "propertyImageURL": "https://90007rentals.com/images/1188_front.jpg",
+      "bookmarked": false
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "listingId": "1",
+      "reviewerName": "Jack Smith",
+      "reviewerClass": "Sophomore",
+      "rating": 3.5,
+      "reviewText": "Great location but there are no laundry facilities. Not overly pricey for the luxury.",
+      "timestamp": 1531101239011
+    },
+    {
+      "id": "2",
+      "listingId": "2",
+      "reviewerName": "Jack Son",
+      "reviewerClass": "Junior",
+      "rating": 5,
+      "reviewText": "Spacious house with a beautiful view of downtown! Cost-effective!",
+      "timestamp": 1636019754000
+    },
+    {
+      "id": "3",
+      "listingId": "1",
+      "reviewerName": "Louie Smith",
+      "reviewerClass": "Senior",
+      "rating": 4,
+      "reviewText": "No in-unit laundry but very close to campus! Good property management too.",
+      "timestamp": 1639019757023
+    }
+  ]
+}
