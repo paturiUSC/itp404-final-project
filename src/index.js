@@ -13,6 +13,7 @@ import Bookmarks from './Routes/Bookmarks';
 import WriteReview from './Routes/WriteReview';
 import Listings from './Routes/Listings';
 import CompleteListing from './Routes/CompleteListing';
+import Admin from './Routes/Admin';
 
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
             return response.json();
           })
         }
+      }, 
+      {
+        path: "/admin", 
+        element: <Admin />
       }
     ]
   }

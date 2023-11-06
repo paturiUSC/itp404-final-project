@@ -38,6 +38,11 @@ export default function Navigation() {
                     Write a Review
                   </NavLink>
                 </li>
+                <li className="nav-item">
+                  <NavLink to="/admin" className="nav-link">
+                    Admin
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>

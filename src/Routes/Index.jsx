@@ -13,6 +13,8 @@ export default function Index()
                     <NavLink className="btn btn-dark btn-lg py-5 custom-bg-button" to="/bookmarks">View Bookmarked Listings</NavLink>
 
                     <NavLink className="btn btn-dark btn-lg py-5 custom-bg-button" to="/writeReview">Write a Review</NavLink>
+
+                    <NavLink className="btn btn-dark btn-lg py-5 custom-bg-button" to="/admin">Admin</NavLink>
                 </div>
             </div>
         </div>
