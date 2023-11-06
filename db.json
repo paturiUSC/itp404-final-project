@@ -11,7 +11,7 @@
       "inUnitLaundry": false,
       "address": "325 W Adams Blvd, Los Angeles, CA 90007",
       "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "id": "2",
@@ -37,7 +37,7 @@
       "inUnitLaundry": false,
       "address": "1188 W 36th Pl, Los Angeles, CA 90007",
       "propertyImageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/-LZ3tiey30rmCa7ucIWK6A/348s.jpg",
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "id": "4",

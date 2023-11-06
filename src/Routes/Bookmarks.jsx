@@ -1,40 +1,12 @@
 import { useLoaderData, NavLink } from "react-router-dom";
 import { useState } from "react";
 import ListingPreview from "./ListingPreview";
+import { saveBookmark } from "../api";
 
 export default function Bookmarks()
 {
     const loadedListings = useLoaderData();
     console.log(loadedListings);
-
-    function listOfListings() 
-    {
-        const listOfListingPreviewObjects = listings.map((listing) => {
-            return (
-                <ListingPreview key={listing.id} id={listing.id} address={listing.address} bedrooms={listing.bedrooms} bathrooms={listing.bathrooms} rent={listing.rent} propertyImg={listing.propertyImageURL} distance={listing.distanceFromVillage}/>
-            );
-        })
-
-        return listOfListingPreviewObjects;
-    }
-
-    function returnRows() 
-    {
-        const listingsList = listOfListings();
-        const rowsOfListings = [];
-
-        for (let i = 0; i < listingsList.length; i += 3) {
-            const listingRow = (
-                <div className="row" key={listingsList[i].props.id}>
-                    {listingsList[i]}
-                    {listingsList[i + 1]}
-                    {listingsList[i + 2]}
-                </div>
-            );
-            rowsOfListings.push(listingRow);
-        }
-        return rowsOfListings;
-    }
 
     const [listings, setListings] = useState(loadedListings);
 
@@ -42,7 +14,25 @@ export default function Bookmarks()
         <div className="container custom-font">
             {
                 listings.length > 0 ? (
-                    returnRows()
+                    <div className="row">
+                            {listings.map((listing, index) => (
+                                <ListingPreview
+                                    key={listing.id} id={listing.id} address={listing.address} bedrooms={listing.bedrooms} bathrooms={listing.bathrooms} rent={listing.rent} propertyImg={listing.propertyImageURL} distance={listing.distanceFromVillage} bookmarked={listing.bookmarked} onClick={(listingId) => {
+                                        const updatedBookmarkData = {
+                                            "bookmarked": listing.bookmarked ? false : true
+                                        };
+                                        saveBookmark(listingId, updatedBookmarkData);
+
+                                        const updatedListings = listings.filter((listing) => {
+                                            return listing.id !== listingId;
+                                        })
+                                
+                                        setListings(updatedListings);
+                                        
+                                    }}
+                                />
+                            ))}
+                    </div>
                     ) : (
                         <div>
                             <h4 className="mt-5">No properties have been bookmarked yet. </h4>

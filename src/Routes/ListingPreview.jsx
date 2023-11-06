@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import "../CSS/ListingPreview.css";
+import { BookmarkFill, Bookmark } from "react-bootstrap-icons";
 import { useState } from "react";
-import { saveBookmark } from "../api";
 
 export default function ListingPreview(props)
 {
-    const [bookmark, setBookmark] = useState(props.bookmarked);
+    const [bookmark, setBookmarked] = useState(props.bookmarked);
 
     function splitAddress() 
     {
@@ -22,7 +22,7 @@ export default function ListingPreview(props)
     }
     
     return (
-        <div className="mt-4 col-4">
+        <div className="mt-4 col-sm-12 col-md-6 col-lg-4">
             <div className="card fixed-card">
                 <Link to={`/listings/${props.id}`} className="custom-preview-decoration">
                 <img src={props.propertyImg} className="card-img-top fixed-image" alt="Listing Image" />
@@ -39,17 +39,14 @@ export default function ListingPreview(props)
                 </Link>
                 <div className="second-body card-body d-flex justify-content-between align-items-center">
                     <div>
-                        <p className="card-text other-description ">Bedrooms: <span className="other-description-info">{props.bedrooms}</span> | Bathrooms: <span className="other-description-info">{props.bathrooms}</span></p>
+                        <p className="card-text other-description ">Bed: <span className="other-description-info">{props.bedrooms}</span> | Bath: <span className="other-description-info">{props.bathrooms}</span></p>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-format"  onClick={() => {
-                        const updatedBookmarkData = {
-                            "bookmarked": bookmark ? false : true
-                        };
-
-                        saveBookmark(props.id, updatedBookmarkData);
-                        setBookmark(bookmark ? false : true);
-                    }}>
-                        Bookmark
+                    <button type="submit" className="btn"  onClick={() => {
+                        props.onClick(props.id);
+                        setBookmarked(!bookmark);
+                    }}
+                    >
+                        {bookmark ? <BookmarkFill /> : <Bookmark />}
                     </button>
                 </div>
             </div>
