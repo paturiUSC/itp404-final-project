@@ -7,7 +7,7 @@ export default function Index()
     return (
         <div className="custom-font">
             <div className="container d-flex justify-content-center align-items-center" style={{height: "75vh"}}>
-                <div className="d-grid gap-2 col-6 mx-auto d-block">
+                <div className="d-grid gap-2 col-lg-6 col-sm-12 mx-auto d-block mt-5">
                     <NavLink className="btn btn-dark btn-lg py-5 custom-bg-button" to="/listings">View Listings</NavLink>
 
                     <NavLink className="btn btn-dark btn-lg py-5 custom-bg-button" to="/bookmarks">View Bookmarked Listings</NavLink>
