@@ -11,3 +11,15 @@ export function saveBookmark(listingId, updatedData) {
         return response.json();
     });
 }
+
+export function saveReview(data) {
+    return fetch(`${baseUrl}/reviews`, {
+        method: 'POST', 
+        body: JSON.stringify(data), 
+        headers: {
+            'Content-type': "application/json",
+        }
+    }).then((response) => {
+        return response.json();
+    });
+}

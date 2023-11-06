@@ -11,7 +11,7 @@
       "inUnitLaundry": false,
       "address": "325 W Adams Blvd, Los Angeles, CA 90007",
       "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "id": "2",
@@ -37,7 +37,7 @@
       "inUnitLaundry": false,
       "address": "1188 W 36th Pl, Los Angeles, CA 90007",
       "propertyImageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/-LZ3tiey30rmCa7ucIWK6A/348s.jpg",
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "id": "4",
@@ -50,7 +50,7 @@
       "inUnitLaundry": true,
       "address": "1436 W 36th Pl, Los Angeles, CA 90007",
       "propertyImageURL": "https://90007rentals.com/images/1188_front.jpg",
-      "bookmarked": true
+      "bookmarked": false
     }
   ],
   "reviews": [
@@ -80,6 +80,15 @@
       "rating": 4,
       "reviewText": "No in-unit laundry but very close to campus! Good property management too.",
       "timestamp": 1639019757023
+    },
+    {
+      "listingId": "3",
+      "reviewerName": "Madhu Pats",
+      "reviewerClass": "Senior",
+      "rating": "5",
+      "reviewText": "Affordable property but overcharged for service repairs.",
+      "timestamp": 0,
+      "id": "77zoqlq"
     }
   ]
 }
