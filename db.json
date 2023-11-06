@@ -57,7 +57,8 @@
     {
       "id": "1",
       "listingId": "1",
-      "reviewerName": "Jack Smith",
+      "reviewerFirstName": "Jack",
+      "reviewerLastName": "Smith",
       "reviewerClass": "Sophomore",
       "rating": 3.5,
       "reviewText": "Great location but there are no laundry facilities. Not overly pricey for the luxury.",
@@ -66,7 +67,8 @@
     {
       "id": "2",
       "listingId": "2",
-      "reviewerName": "Jack Son",
+      "reviewerFirstName": "Jack",
+      "reviewerLastName": "Son",
       "reviewerClass": "Junior",
       "rating": 5,
       "reviewText": "Spacious house with a beautiful view of downtown! Cost-effective!",
@@ -75,20 +77,62 @@
     {
       "id": "3",
       "listingId": "1",
-      "reviewerName": "Louie Smith",
+      "reviewerFirstName": "Louie",
+      "reviewerLastName": "Smith",
       "reviewerClass": "Senior",
       "rating": 4,
       "reviewText": "No in-unit laundry but very close to campus! Good property management too.",
       "timestamp": 1639019757023
     },
     {
-      "listingId": "3",
-      "reviewerName": "Madhu Pats",
-      "reviewerClass": "Senior",
-      "rating": "5",
-      "reviewText": "Affordable property but overcharged for service repairs.",
+      "listingId": "",
+      "reviewerFirstName": "Madhu",
+      "reviewerLastName": "Pats",
+      "reviewerClass": "sophomore",
+      "rating": "1",
+      "reviewText": "Slightly expensive property and lots of noise at night. ",
       "timestamp": 0,
-      "id": "77zoqlq"
+      "id": "MIRTmJ7"
+    },
+    {
+      "listingId": "1",
+      "reviewerFirstName": "Trial",
+      "reviewerLastName": "Run",
+      "reviewerClass": "sophomore",
+      "rating": "5",
+      "reviewText": "Trail Run",
+      "timestamp": 0,
+      "id": "iAFYd25"
+    },
+    {
+      "listingId": "",
+      "reviewerFirstName": "trial ",
+      "reviewerLastName": "run",
+      "reviewerClass": "sophomore",
+      "rating": "5",
+      "reviewText": "trial run lower",
+      "timestamp": 0,
+      "id": "mxkv4RD"
+    },
+    {
+      "listingId": "1",
+      "reviewerFirstName": "Trialr",
+      "reviewerLastName": "run",
+      "reviewerClass": "sophomore",
+      "rating": "5",
+      "reviewText": "Mixed Case ",
+      "timestamp": 1699312608788,
+      "id": "OThyE3R"
+    },
+    {
+      "listingId": "1",
+      "reviewerFirstName": "Another",
+      "reviewerLastName": "Trial-Run",
+      "reviewerClass": "sophomore",
+      "rating": "5",
+      "reviewText": "Testing once again",
+      "timestamp": 1699312766963,
+      "id": "YBcpgX0"
     }
   ]
 }

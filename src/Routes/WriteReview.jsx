@@ -9,24 +9,26 @@ export default function ReviewProto()
     const loadedListings = useLoaderData();
     console.log(loadedListings);
 
-    const [propertyName, setPropertyName] = useState("");
-    const [reviewerName, setReviewerName] = useState("");
+    const [propertyName, setPropertyName] = useState("1");
+    const [reviewerFirstName, setReviewerFirstName] = useState("");
+    const [reviewerLastName, setReviewerLastName] = useState("");
     const [reviewerClass, setReviewerClass] = useState("sophomore");
     const [rating, setRating] = useState("5");
     const [reviewComments, setReviewComments] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [timeSubmitted, setTimeSubmitted] = useState(0);
+    const [timeSubmitted, setTimeSubmitted] = useState(new Date().getTime());
     const [isError, setIsError] = useState(false);
 
     function reset()
     {
         setPropertyName("");
-        setReviewerName("");
+        setReviewerFirstName("");
+        setReviewerLastName("");
         setReviewerClass("sophomore");
         setRating("5");
         setReviewComments("");
         setIsSubmitted(false);
-        setTimeSubmitted(0);
+        setTimeSubmitted(new Date().getTime());
         setIsError(false);
     }
 
@@ -52,7 +54,7 @@ export default function ReviewProto()
                     <p>The review has been submitted. Thank you for taking the time to review a property you have stayed at.</p>
                     <p>Here are the details of your review.</p>
                     <p>Property Reviewed:<span className="highlight-values">{propertyName}</span></p>
-                    <p>Your Name:<span className="highlight-values">{reviewerName}</span></p>
+                    <p>Your Name:<span className="highlight-values">{reviewerFirstName} {reviewerLastName}</span></p>
                     <p>Your Class:<span className="highlight-values">{reviewerClass}</span></p>
                     <p>Rating:<span className="highlight-values">{rating}</span></p>
                     <p>Comments:<span className="highlight-values">{reviewComments}</span></p>
@@ -68,13 +70,10 @@ export default function ReviewProto()
             (<form onSubmit={(event) => {
             event.preventDefault();
 
-            setIsSubmitted(true);
-            const currentTimestamp = new Date().getTime();
-            setTimeSubmitted(currentTimestamp);
-
             saveReview({
                 listingId: propertyName,
-                reviewerName: reviewerName, 
+                reviewerFirstName: reviewerFirstName, 
+                reviewerLastName: reviewerLastName,
                 reviewerClass: reviewerClass, 
                 rating: rating, 
                 reviewText: reviewComments, 
@@ -82,8 +81,6 @@ export default function ReviewProto()
             }).then(() => {
                 setIsSubmitted(true);
                 setIsError(false);
-                const currentTimestamp = new Date().getTime();
-                setTimeSubmitted(currentTimestamp);
             }, () => {
                 setIsError(true);
                 setIsSubmitted(false);
@@ -95,7 +92,6 @@ export default function ReviewProto()
             <div className="my-3">
                 <label htmlFor="property-selection" className="form-label">Property Name</label>
                 <select className="form-select form-select-md mb-3" id="property-selection" required aria-label=".form-select-lg example" value={propertyName} onChange={(event) => {
-                    // console.log(event.target.value.toString());
                     setPropertyName(event.target.value.toString());
                 }}>
                     {loadedListings.map((listing) => {
@@ -108,8 +104,14 @@ export default function ReviewProto()
             </div>
 
             <div className="my-3">
-                <InputText label="Reviewer Name" id="reviewer-name" value={reviewerName} onChange={(event) => {
-                    setReviewerName(event.target.value);
+                <InputText label="Reviewer First Name" id="reviewer-first-name" value={reviewerFirstName} onChange={(event) => {
+                    setReviewerFirstName(event.target.value);
+                }} />
+            </div>
+
+            <div className="my-3">
+                <InputText label="Reviewer Last Name" id="reviewer-last-name" value={reviewerLastName} onChange={(event) => {
+                    setReviewerLastName(event.target.value);
                 }} />
             </div>
             
@@ -167,7 +169,10 @@ export default function ReviewProto()
                 </div>
             </div>
 
-            <button type="submit" className="btn btn-primary my-3 btn-color">
+            <button type="submit" className="btn btn-primary my-3 btn-color" onClick={()=> {
+                const currentTimestamp = new Date().getTime();
+                setTimeSubmitted(currentTimestamp);
+            }}>
                 Submit
             </button>
 

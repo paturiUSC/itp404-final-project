@@ -81,7 +81,7 @@ export default function CompleteListing()
                     <div className="d-flex flex-column">
                         <div className="row">
                             <div className="col-7">
-                                <img src={loadedListing.propertyImageURL} className="img-fluid w-100 img-height" alt="Listing Image" />
+                                <img src={loadedListing.propertyImageURL} className="img-fluid w-100 img-height" alt={loadedListing.title} />
                             </div>
                             <div className="card col-5">
                                 <div className="card-body d-flex flex-column justify-content-center">
@@ -109,7 +109,7 @@ export default function CompleteListing()
                                                             <h4 className="card-title star-icons">{generateStarIcons(review.rating)}</h4>
                                                         </div>
                                                         <div className="col-md-6 text-md-end">
-                                                            <h6 className="card-subtitle mb-2 text-muted">{review.reviewerName} <span className="reviewer-class">({review.reviewerClass})</span></h6>
+                                                            <h6 className="card-subtitle mb-2 text-muted">{review.reviewerFirstName} {review.reviewerLastName} <span className="reviewer-class">({review.reviewerClass})</span></h6>
                                                         </div>
                                                     </div>
                                                     <p className="card-text mt-2">{review.reviewText}</p>
