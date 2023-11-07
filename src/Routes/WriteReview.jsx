@@ -3,6 +3,8 @@ import { useState } from "react";
 import InputText from "../Form/InputText";
 import "../CSS/WriteReview.css";
 import { saveReview } from "../api";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ReviewProto()
 {
@@ -81,9 +83,11 @@ export default function ReviewProto()
             }).then(() => {
                 setIsSubmitted(true);
                 setIsError(false);
+                toast.success("Successfully wrote and submitted the review.");
             }, () => {
                 setIsError(true);
                 setIsSubmitted(false);
+                toast.error("Unsuccessfully wrote and submitted the review. Please try again!");
             });
 
         }}>
@@ -183,6 +187,7 @@ export default function ReviewProto()
             {isError ? <div className="mb-3 text-danger">Error submitting the form. Please try again!</div>: <></>}
 
         </form>)}
+        <ToastContainer position="bottom-left" autoClose={5000} />
     </div>
     );
 }

@@ -110,8 +110,13 @@ export default function CompleteListing()
                         const updatedBookmarkData = {
                             "bookmarked": bookmark ? false : true
                         };
-
-                        saveBookmark(listing.id, updatedBookmarkData);
+                        saveBookmark(listing.id, updatedBookmarkData).then(() => {
+                                    
+                            bookmark ? toast.success("Successfully unbookmarked the listing."): toast.success("Successfully bookmarked the listing.")
+                        }, () => {
+                            bookmark ? toast.error("Unsuccessfully unbookmarked the listing."): toast.error("Unsuccesfully bookmarked the listing. Please try again!");
+                            
+                        });
                         setBookmark(bookmark ? false : true);
                     }}>Bookmark</button>
                 </div>
