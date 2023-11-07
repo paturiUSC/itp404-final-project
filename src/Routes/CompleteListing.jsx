@@ -77,9 +77,9 @@ export default function CompleteListing()
                                         return (
                                             <ReviewCard key={review.id} id={review.id} rating={review.rating} reviewText={review.reviewText} reviewerClass={review.reviewerClass} reviewerFirstName={review.reviewerFirstName} reviewerLastName={review.reviewerLastName} timestamp={review.timestamp} onClick={(deletedReviewId) => {
                                                 deleteReview(deletedReviewId).then(() => {
-                                                    toast.success("Successfully deleted the review.")
+                                                    toast.success("Successfully deleted the review.");
                                                 }, () => {
-                                                    toast.error("Unsuccesfully deleted the review. Please try again!")
+                                                    toast.error("Unsuccesfully deleted the review. Please try again!");
                                                 });
                                                 setListing({
                                                     ...listing, 

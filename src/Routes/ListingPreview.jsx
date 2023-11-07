@@ -42,7 +42,7 @@ export default function ListingPreview(props)
                         <p className="card-text other-description ">Bed: <span className="other-description-info">{props.bedrooms}</span> | Bath: <span className="other-description-info">{props.bathrooms}</span></p>
                     </div>
                     <button type="submit" className="btn"  onClick={() => {
-                        props.onClick(props.id);
+                        props.onClick(props.id, bookmark);
                         setBookmarked(!bookmark);
                     }}
                     >
