@@ -65,6 +65,7 @@ export default function ReviewProto()
                         <Link className="btn btn-dark custom-bg-button my-5" to="/writeReview" onClick={() => {
                             setIsSubmitted(false);
                             reset();
+                            toast.success("Successfully selected the option to write another review. Thank you for taking the time to review another property!");
                         }}>Write Another Review</Link>
                     </div>
                 </div>
