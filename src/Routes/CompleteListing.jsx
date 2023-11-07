@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { ArrowLeftCircle } from 'react-bootstrap-icons';
 import { deleteReview, saveBookmark } from "../api";
 import ReviewCard from "./ReviewCard";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CompleteListing() 
 {
@@ -74,7 +76,11 @@ export default function CompleteListing()
                                     {listing.reviews.sort((review1, review2) => review2.timestamp - review1.timestamp).map((review) => {
                                         return (
                                             <ReviewCard key={review.id} id={review.id} rating={review.rating} reviewText={review.reviewText} reviewerClass={review.reviewerClass} reviewerFirstName={review.reviewerFirstName} reviewerLastName={review.reviewerLastName} timestamp={review.timestamp} onClick={(deletedReviewId) => {
-                                                deleteReview(deletedReviewId);
+                                                deleteReview(deletedReviewId).then(() => {
+                                                    toast.success("Successfully deleted the review.")
+                                                }, () => {
+                                                    toast.error("Unsuccesfully deleted the review. Please try again!")
+                                                });
                                                 setListing({
                                                     ...listing, 
                                                     reviews: listing.reviews.filter((review) => {
@@ -110,6 +116,7 @@ export default function CompleteListing()
                     }}>Bookmark</button>
                 </div>
             </div>
+            <ToastContainer position="bottom-left" autoClose={5000} />
         </div>
     )
 }
