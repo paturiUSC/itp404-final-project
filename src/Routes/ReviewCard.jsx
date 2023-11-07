@@ -32,28 +32,30 @@ export default function ReviewCard(props)
         return starIcons;
     }
 
-    return (<div key={props.id} className="card mb-3">
-        <div className="card-body">
-            <div className="row">
-                <div className="col-md-6">
-                    <h4 className="card-title star-icons">{generateStarIcons(props.rating)}</h4>
+    return (
+        <div key={props.id} className="card mb-3">
+            <div className="card-body">
+                <div className="row">
+                    <div className="col-md-6">
+                        <h4 className="card-title star-icons">{generateStarIcons(props.rating)}</h4>
+                    </div>
+                    <div className="col-md-6 text-md-end">
+                        <h6 className="card-subtitle mb-2 text-muted">{props.reviewerFirstName} {props.reviewerLastName} <span className="reviewer-class">({props.reviewerClass})</span></h6>
+                    </div>
                 </div>
-                <div className="col-md-6 text-md-end">
-                    <h6 className="card-subtitle mb-2 text-muted">{props.reviewerFirstName} {props.reviewerLastName} <span className="reviewer-class">({props.reviewerClass})</span></h6>
-                </div>
-            </div>
-            <div className="row align-items-center">
-                <div className="col-md-6">
-                    <p className="card-text mt-2">{props.reviewText}</p>
-                    <p className="card-text review-written">{convertMillisecondsToReadableDate(props.timestamp)}</p>
-                </div>
-                <div className="col-md-6 text-md-end">
-                    <button id="delete" className="btn btn-secondary btn-color" onClick={() => {
-                        const deletedReview = props.id;
-                        props.onClick(deletedReview);
-                    }}>Delete</button>
+                <div className="row align-items-center">
+                    <div className="col-md-6">
+                        <p className="card-text mt-2">{props.reviewText}</p>
+                        <p className="card-text review-written">{convertMillisecondsToReadableDate(props.timestamp)}</p>
+                    </div>
+                    <div className="col-md-6 text-md-end">
+                        <button id="delete" className="btn btn-secondary btn-color" onClick={() => {
+                            const deletedReview = props.id;
+                            props.onClick(deletedReview);
+                        }}>Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>);
+    );
 }
