@@ -3,6 +3,7 @@ import "../CSS/CompleteListing.css";
 import React, { useState } from "react";
 import { ArrowLeftCircle } from 'react-bootstrap-icons';
 import { deleteReview, saveBookmark } from "../api";
+import ReviewCard from "./ReviewCard";
 
 export default function CompleteListing() 
 {
@@ -25,38 +26,6 @@ export default function CompleteListing()
         splitAddressInfo.push(cityStateZip);
 
         return splitAddressInfo;
-    }
-
-    function convertMillisecondsToReadableDate(timestamp) {
-        const date = new Date(timestamp);
-      
-        const year = date.getFullYear();
-        const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
-        const day = date.getDate().toString().padStart(2, '0');
-        const hours = date.getHours().toString().padStart(2, '0');
-        const minutes = date.getMinutes().toString().padStart(2, '0');
-        const seconds = date.getSeconds().toString().padStart(2, '0');
-
-        const formattedDate = `${year}-${month}-${day} at ${hours}:${minutes}:${seconds}`;
-    
-        return formattedDate;
-    }
-
-    function generateStarIcons(rating) {
-        const maxRating = 5; 
-        const starIcons = [];
-      
-        for (let i = 1; i <= maxRating; i++) {
-          if (i <= rating) {
-            starIcons.push(<i key={i} className="bi bi-star-fill text-warning"></i>);
-          } else if (i - rating <= 0.5) {
-            starIcons.push(<i key={i} className="bi bi-star-half text-warning"></i>);
-          } else {
-            starIcons.push(<i key={i} className="bi bi-star text-warning"></i>);
-          }
-        }
-      
-        return starIcons;
     }
 
     return (
@@ -104,37 +73,15 @@ export default function CompleteListing()
                                 <div>
                                     {listing.reviews.sort((review1, review2) => review2.timestamp - review1.timestamp).map((review) => {
                                         return (
-                                            <div key={review.id} className="card mb-3">
-                                                <div className="card-body">
-                                                    <div className="row">
-                                                        <div className="col-md-6">
-                                                            <h4 className="card-title star-icons">{generateStarIcons(review.rating)}</h4>
-                                                        </div>
-                                                        <div className="col-md-6 text-md-end">
-                                                            <h6 className="card-subtitle mb-2 text-muted">{review.reviewerFirstName} {review.reviewerLastName} <span className="reviewer-class">({review.reviewerClass})</span></h6>
-                                                        </div>
-                                                    </div>
-                                                    <div className="row align-items-center">
-                                                        <div className="col-md-6">
-                                                            <p className="card-text mt-2">{review.reviewText}</p>
-                                                            <p className="card-text review-written">{convertMillisecondsToReadableDate(review.timestamp)}</p>
-                                                        </div>
-                                                        <div className="col-md-6 text-md-end">
-                                                            <button id="delete" className="btn btn-secondary btn-color" onClick={() => {
-                                                                const deletedReview = review;
-                                                                deleteReview(deletedReview.id);
-                                              
-                                                                setListing({
-                                                                  ...listing, 
-                                                                  reviews: listing.reviews.filter((review) => {
-                                                                    return review.id !== deletedReview.id;
-                                                                  })
-                                                                })
-                                                            }}>Delete</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <ReviewCard key={review.id} id={review.id} rating={review.rating} reviewText={review.reviewText} reviewerClass={review.reviewerClass} reviewerFirstName={review.reviewerFirstName} reviewerLastName={review.reviewerLastName} timestamp={review.timestamp} onClick={(deletedReviewId) => {
+                                                deleteReview(deletedReviewId);
+                                                setListing({
+                                                    ...listing, 
+                                                    reviews: listing.reviews.filter((review) => {
+                                                        return review.id !== deletedReviewId;
+                                                    })
+                                                })
+                                            }}/>
                                           );
                                     })}
                                 </div>
