@@ -37,7 +37,7 @@
       "inUnitLaundry": false,
       "address": "1188 W 36th Pl, Los Angeles, CA 90007",
       "propertyImageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/-LZ3tiey30rmCa7ucIWK6A/348s.jpg",
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "id": "4",
@@ -83,56 +83,6 @@
       "rating": 4,
       "reviewText": "No in-unit laundry but very close to campus! Good property management too.",
       "timestamp": 1639019757023
-    },
-    {
-      "listingId": "",
-      "reviewerFirstName": "Madhu",
-      "reviewerLastName": "Pats",
-      "reviewerClass": "sophomore",
-      "rating": "1",
-      "reviewText": "Slightly expensive property and lots of noise at night. ",
-      "timestamp": 0,
-      "id": "MIRTmJ7"
-    },
-    {
-      "listingId": "1",
-      "reviewerFirstName": "Trial",
-      "reviewerLastName": "Run",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "Trail Run",
-      "timestamp": 0,
-      "id": "iAFYd25"
-    },
-    {
-      "listingId": "",
-      "reviewerFirstName": "trial ",
-      "reviewerLastName": "run",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "trial run lower",
-      "timestamp": 0,
-      "id": "mxkv4RD"
-    },
-    {
-      "listingId": "1",
-      "reviewerFirstName": "Trialr",
-      "reviewerLastName": "run",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "Mixed Case ",
-      "timestamp": 1699312608788,
-      "id": "OThyE3R"
-    },
-    {
-      "listingId": "1",
-      "reviewerFirstName": "Another",
-      "reviewerLastName": "Trial-Run",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "Testing once again",
-      "timestamp": 1699312766963,
-      "id": "YBcpgX0"
     }
   ]
 }

@@ -2,24 +2,26 @@ import { useLoaderData, NavLink } from "react-router-dom";
 import "../CSS/CompleteListing.css";
 import React, { useState } from "react";
 import { ArrowLeftCircle } from 'react-bootstrap-icons';
-import { saveBookmark } from "../api";
+import { deleteReview, saveBookmark } from "../api";
 
 export default function CompleteListing() 
 {
     const loadedListing = useLoaderData();
-    console.log(loadedListing);
 
-    const [bookmark, setBookmark] = useState(loadedListing.bookmarked);
+    const [listing, setListing] = useState(loadedListing);
+    console.log(listing);
+
+    const [bookmark, setBookmark] = useState(listing.bookmarked);
 
     function splitAddress() 
     {
         const splitAddressInfo = [];
 
-        const firstCommaIndex = loadedListing.address.indexOf(",");
+        const firstCommaIndex = listing.address.indexOf(",");
 
-        const addressLine = loadedListing.address.substring(0, firstCommaIndex);
+        const addressLine = listing.address.substring(0, firstCommaIndex);
         splitAddressInfo.push(addressLine);
-        const cityStateZip = loadedListing.address.substring(firstCommaIndex + 1); 
+        const cityStateZip = listing.address.substring(firstCommaIndex + 1); 
         splitAddressInfo.push(cityStateZip);
 
         return splitAddressInfo;
@@ -75,22 +77,22 @@ export default function CompleteListing()
                             Reviews
                         </a>
                     </div>
-                    <h2 id="details" className="mt-4">{loadedListing.title}</h2>
+                    <h2 id="details" className="mt-4">{listing.title}</h2>
                     <p className="address-spacing">{splitAddress()[0]}</p>
                     <p>{splitAddress()[1]}</p>
                     <div className="d-flex flex-column">
                         <div className="row">
                             <div className="col-7">
-                                <img src={loadedListing.propertyImageURL} className="img-fluid w-100 img-height" alt={loadedListing.title} />
+                                <img src={listing.propertyImageURL} className="img-fluid w-100 img-height" alt={listing.title} />
                             </div>
                             <div className="card col-5">
                                 <div className="card-body d-flex flex-column justify-content-center">
-                                    <p className="description-styling">Bedrooms: {loadedListing.bedrooms}</p>
-                                    <p className="description-styling">Bathrooms: {loadedListing.bathrooms}</p>
-                                    <p className="description-styling">Rent: ${loadedListing.rent}</p>
-                                    <p className="description-styling">Distance from Village: {loadedListing.distanceFromVillage} miles</p>
-                                    <p className="description-styling">Shryft Zone: {loadedListing.shryftZone ? "Yes": "No"}</p>
-                                    <p className="description-styling">In-Unit Laundry: {loadedListing.inUnitLaundrt ? "Yes": "No"}</p>
+                                    <p className="description-styling">Bedrooms: {listing.bedrooms}</p>
+                                    <p className="description-styling">Bathrooms: {listing.bathrooms}</p>
+                                    <p className="description-styling">Rent: ${listing.rent}</p>
+                                    <p className="description-styling">Distance from Village: {listing.distanceFromVillage} miles</p>
+                                    <p className="description-styling">Shryft Zone: {listing.shryftZone ? "Yes": "No"}</p>
+                                    <p className="description-styling">In-Unit Laundry: {listing.inUnitLaundrt ? "Yes": "No"}</p>
                                 </div>
                             </div>
                         </div>
@@ -98,9 +100,9 @@ export default function CompleteListing()
                     <div className="">
                         <h2 className="reviews-header mt-4 mb-2" id="reviews">Reviews</h2>
                         {
-                            loadedListing.reviews.length !== 0 ? (
+                            listing.reviews.length !== 0 ? (
                                 <div>
-                                    {loadedListing.reviews.map((review) => {
+                                    {listing.reviews.sort((review1, review2) => review2.timestamp - review1.timestamp).map((review) => {
                                         return (
                                             <div key={review.id} className="card mb-3">
                                                 <div className="card-body">
@@ -112,8 +114,25 @@ export default function CompleteListing()
                                                             <h6 className="card-subtitle mb-2 text-muted">{review.reviewerFirstName} {review.reviewerLastName} <span className="reviewer-class">({review.reviewerClass})</span></h6>
                                                         </div>
                                                     </div>
-                                                    <p className="card-text mt-2">{review.reviewText}</p>
-                                                    <p className="card-text review-written">{convertMillisecondsToReadableDate(review.timestamp)}</p>
+                                                    <div className="row align-items-center">
+                                                        <div className="col-md-6">
+                                                            <p className="card-text mt-2">{review.reviewText}</p>
+                                                            <p className="card-text review-written">{convertMillisecondsToReadableDate(review.timestamp)}</p>
+                                                        </div>
+                                                        <div className="col-md-6 text-md-end">
+                                                            <button id="delete" className="btn btn-secondary btn-color" onClick={() => {
+                                                                const deletedReview = review;
+                                                                deleteReview(deletedReview.id);
+                                              
+                                                                setListing({
+                                                                  ...listing, 
+                                                                  reviews: listing.reviews.filter((review) => {
+                                                                    return review.id !== deletedReview.id;
+                                                                  })
+                                                                })
+                                                            }}>Delete</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                           );
@@ -134,12 +153,12 @@ export default function CompleteListing()
                         }
 
                     </div>
-                    <button className="btn btn-primary btn-color btn-lg mt-4 mb-5" id="bookmark" onClick={() => {
+                    <button className="btn btn-secondary btn-color btn-lg mt-4 mb-5" id="bookmark" onClick={() => {
                         const updatedBookmarkData = {
                             "bookmarked": bookmark ? false : true
                         };
 
-                        saveBookmark(loadedListing.id, updatedBookmarkData);
+                        saveBookmark(listing.id, updatedBookmarkData);
                         setBookmark(bookmark ? false : true);
                     }}>Bookmark</button>
                 </div>

@@ -23,3 +23,11 @@ export function saveReview(data) {
         return response.json();
     });
 }
+
+export function deleteReview(reviewId) {
+    return fetch(
+        `${baseUrl}/reviews/${reviewId}`, {
+            method: "DELETE",
+        }
+      )
+}
