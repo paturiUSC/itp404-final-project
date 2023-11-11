@@ -33,7 +33,7 @@ export default function ReviewCard(props)
     }
 
     return (
-        <div key={props.id} className="card mb-3">
+        <div key={props.id} className="card mt-2 mb-2">
             <div className="card-body">
                 <div className="row">
                     <div className="col-md-6">
@@ -48,12 +48,12 @@ export default function ReviewCard(props)
                         <p className="card-text mt-2">{props.reviewText}</p>
                         <p className="card-text review-written">{convertMillisecondsToReadableDate(props.timestamp)}</p>
                     </div>
-                    <div className="col-md-6 text-md-end">
+                    {props.button ? <div className="col-md-6 text-md-end">
                         <button id="delete" className="btn btn-secondary btn-color" onClick={() => {
                             const deletedReview = props.id;
                             props.onClick(deletedReview);
-                        }}>Delete</button>
-                    </div>
+                        }}>{props.button}</button>
+                    </div> : <div></div>} 
                 </div>
             </div>
         </div>

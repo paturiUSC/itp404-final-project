@@ -79,7 +79,14 @@ const router = createBrowserRouter([
       }, 
       {
         path: "/admin", 
-        element: <Admin />
+        element: <Admin />,
+        loader(loaderData) {
+          return fetch(
+            `${baseUrl}/reviews`
+          ).then((response) => {
+            return response.json();
+          }) 
+        }
       }
     ]
   }

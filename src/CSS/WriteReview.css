@@ -38,3 +38,7 @@ form {
      resize: none;
   }
 }
+
+.form-submission-details {
+    text-align: center;
+}

@@ -56,7 +56,7 @@ export default function CompleteListing()
                             <div className="col-7">
                                 <img src={listing.propertyImageURL} className="img-fluid w-100 img-height" alt={listing.title} />
                             </div>
-                            <div className="card col-5">
+                            <div className="card col-5 listing-details">
                                 <div className="card-body d-flex flex-column justify-content-center">
                                     <p className="description-styling">Bedrooms: {listing.bedrooms}</p>
                                     <p className="description-styling">Bathrooms: {listing.bathrooms}</p>
@@ -75,7 +75,7 @@ export default function CompleteListing()
                                 <div>
                                     {listing.reviews.sort((review1, review2) => review2.timestamp - review1.timestamp).map((review) => {
                                         return (
-                                            <ReviewCard key={review.id} id={review.id} rating={review.rating} reviewText={review.reviewText} reviewerClass={review.reviewerClass} reviewerFirstName={review.reviewerFirstName} reviewerLastName={review.reviewerLastName} timestamp={review.timestamp} onClick={(deletedReviewId) => {
+                                            <ReviewCard key={review.id} id={review.id} rating={review.rating} reviewText={review.reviewText} reviewerClass={review.reviewerClass} reviewerFirstName={review.reviewerFirstName} reviewerLastName={review.reviewerLastName} timestamp={review.timestamp} button={"Delete"} onClick={(deletedReviewId) => {
                                                 deleteReview(deletedReviewId).then(() => {
                                                     toast.success("Successfully deleted the review.");
                                                 }, () => {

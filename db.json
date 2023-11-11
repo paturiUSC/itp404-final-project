@@ -24,7 +24,7 @@
       "inUnitLaundry": true,
       "address": "10573 W Pico Blvd, Los Angeles, CA 90064",
       "propertyImageURL": "https://lirp.cdn-website.com/951f8cd2/dms3rep/multi/opt/Living+Room+3-432w.jpeg",
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "id": "3",
@@ -83,6 +83,16 @@
       "rating": 4,
       "reviewText": "No in-unit laundry but very close to campus! Good property management too.",
       "timestamp": 1639019757023
+    },
+    {
+      "listingId": "1",
+      "reviewerFirstName": "eerklfj",
+      "reviewerLastName": "ejflkewjq",
+      "reviewerClass": "sophomore",
+      "rating": "5",
+      "reviewText": "efkjlqekfqw",
+      "timestamp": 1699742282700,
+      "id": "44FvDNN"
     }
   ]
 }

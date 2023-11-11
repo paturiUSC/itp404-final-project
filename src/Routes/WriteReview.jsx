@@ -6,12 +6,12 @@ import { saveReview } from "../api";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function ReviewProto()
+export default function WriteReview()
 {
     const loadedListings = useLoaderData();
     console.log(loadedListings);
 
-    const [propertyName, setPropertyName] = useState("1");
+    const [propertyId, setPropertyId] = useState("1");
     const [reviewerFirstName, setReviewerFirstName] = useState("");
     const [reviewerLastName, setReviewerLastName] = useState("");
     const [reviewerClass, setReviewerClass] = useState("sophomore");
@@ -23,7 +23,7 @@ export default function ReviewProto()
 
     function reset()
     {
-        setPropertyName("");
+        setPropertyId("");
         setReviewerFirstName("");
         setReviewerLastName("");
         setReviewerClass("sophomore");
@@ -47,20 +47,48 @@ export default function ReviewProto()
         const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     
         return formattedDate;
-      }
+    }
+
+    function generateStarIcons(rating) {
+        const maxRating = 5; 
+        const starIcons = [];
+      
+        for (let i = 1; i <= maxRating; i++) {
+          if (i <= rating) {
+            starIcons.push(<i key={i} className="bi bi-star-fill text-warning"></i>);
+          } else if (i - rating <= 0.5) {
+            starIcons.push(<i key={i} className="bi bi-star-half text-warning"></i>);
+          } else {
+            starIcons.push(<i key={i} className="bi bi-star text-warning"></i>);
+          }
+        }
+      
+        return starIcons;
+    }
+
+    function getReviewedPropertyTitle(propertyId)
+    {
+        const reviewedProperty = loadedListings.filter((listing) => {
+            return listing.id === propertyId
+        })
+
+        return reviewedProperty[0].title;
+    }
 
     return (<div className="container custom-font">
         {isSubmitted ? 
             (
-                <div>
-                    <p>The review has been submitted. Thank you for taking the time to review a property you have stayed at.</p>
+                <div className="mx-auto form-submission-details">
+                    <p className="mt-4">The review has been submitted. Thank you for taking the time to review a property you have stayed at.</p>
                     <p>Here are the details of your review.</p>
-                    <p>Property Reviewed:<span className="highlight-values">{propertyName}</span></p>
-                    <p>Your Name:<span className="highlight-values">{reviewerFirstName} {reviewerLastName}</span></p>
-                    <p>Your Class:<span className="highlight-values">{reviewerClass}</span></p>
-                    <p>Rating:<span className="highlight-values">{rating}</span></p>
-                    <p>Comments:<span className="highlight-values">{reviewComments}</span></p>
-                    <p>Time Submitted:<span className="highlight-values">{convertMillisecondsToReadableDate(timeSubmitted)}</span></p>
+                    <h3 className="mt-5">Your Details</h3>
+                    <p>Name: <span className="highlight-values">{reviewerFirstName} {reviewerLastName}</span></p>
+                    <p>Class: <span className="highlight-values">{reviewerClass}</span></p>
+                    <h3 className="mt-5">Your Review</h3>
+                    <h5><span className="mt-2 star-icons">{generateStarIcons(rating)}</span></h5>
+                    <p>Property Reviewed: <span className="highlight-values">{getReviewedPropertyTitle(propertyId)}</span></p>
+                    <p>Comments: <span className="highlight-values">{reviewComments}</span></p>
+                    <p>Time Submitted: <span className="highlight-values">{convertMillisecondsToReadableDate(timeSubmitted)}</span></p>
                     <div>
                         <Link className="btn btn-dark custom-bg-button my-5" to="/writeReview" onClick={() => {
                             setIsSubmitted(false);
@@ -74,7 +102,7 @@ export default function ReviewProto()
             event.preventDefault();
 
             saveReview({
-                listingId: propertyName,
+                listingId: propertyId,
                 reviewerFirstName: reviewerFirstName, 
                 reviewerLastName: reviewerLastName,
                 reviewerClass: reviewerClass, 
@@ -96,8 +124,8 @@ export default function ReviewProto()
 
             <div className="my-3">
                 <label htmlFor="property-selection" className="form-label">Property Name</label>
-                <select className="form-select form-select-md mb-3" id="property-selection" required aria-label=".form-select-lg example" value={propertyName} onChange={(event) => {
-                    setPropertyName(event.target.value.toString());
+                <select className="form-select form-select-md mb-3" id="property-selection" required aria-label=".form-select-lg example" value={propertyId} onChange={(event) => {
+                    setPropertyId(event.target.value.toString());
                 }}>
                     {loadedListings.map((listing) => {
                         return <option key={listing.id} value={listing.id}>{listing.title}</option>

@@ -13,7 +13,7 @@
     - For Post request when writing a review, is that correct for handling errors?
     - Can I order reviews using the sort() function?
     - Is delete fine?
-    - Am I satisfying the two component thing? 
     - Is additional feature good to go?
     - For the form, is that enough for unique error message?
     - Are notifications for Toastify enough?
+    - How to do the select all button thing?
