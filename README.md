@@ -1,8 +1,8 @@
 # To-Do 
 - Add admin component to bulk delete (and toastify here)
-- Add further form validation 
-    - Add unique error message underneath each form element 
 - Satisfy generic component task
+- move all API calls to one script
+- make the select a component in review form
 
 - Document title 
 - Unit Tests 

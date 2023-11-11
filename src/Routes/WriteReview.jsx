@@ -19,7 +19,13 @@ export default function WriteReview()
     const [reviewComments, setReviewComments] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [timeSubmitted, setTimeSubmitted] = useState(new Date().getTime());
-    const [isError, setIsError] = useState(false);
+    const [formSavingError, setFormSavingError] = useState(false);
+
+    const [reviewCommentsError, setReviewCommentsError] = useState(false);
+    const [reviewerFirstNameError, setReviewerFirstNameError] = useState(false);
+    const [reviewerLastNameError, setReviewerLastNameError] = useState(false);
+
+    const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/;
 
     function reset()
     {
@@ -31,7 +37,7 @@ export default function WriteReview()
         setReviewComments("");
         setIsSubmitted(false);
         setTimeSubmitted(new Date().getTime());
-        setIsError(false);
+        setFormSavingError(false);
     }
 
     function convertMillisecondsToReadableDate(timestamp) {
@@ -99,27 +105,33 @@ export default function WriteReview()
                 </div>
             ) : 
             (<form onSubmit={(event) => {
-            event.preventDefault();
+                event.preventDefault();
 
-            saveReview({
-                listingId: propertyId,
-                reviewerFirstName: reviewerFirstName, 
-                reviewerLastName: reviewerLastName,
-                reviewerClass: reviewerClass, 
-                rating: rating, 
-                reviewText: reviewComments, 
-                timestamp: timeSubmitted
-            }).then(() => {
-                setIsSubmitted(true);
-                setIsError(false);
-                toast.success("Successfully wrote and submitted the review.");
-            }, () => {
-                setIsError(true);
-                setIsSubmitted(false);
-                toast.error("Unsuccessfully wrote and submitted the review. Please try again!");
-            });
-
-        }}>
+                {reviewComments.length <=5 ? setReviewCommentsError(true) : setReviewCommentsError(false)}
+                {specialCharacters.test(reviewerFirstName) || /\d/.test(reviewerFirstName) ? setReviewerFirstNameError(true) : setReviewerFirstNameError(false)}
+                {specialCharacters.test(reviewerLastName) || /\d/.test(reviewerLastName) ? setReviewerLastNameError(true) : setReviewerLastNameError(false)}
+                
+                if (reviewCommentsError && reviewerFirstNameError && reviewerLastNameError)
+                {
+                    saveReview({
+                        listingId: propertyId,
+                        reviewerFirstName: reviewerFirstName, 
+                        reviewerLastName: reviewerLastName,
+                        reviewerClass: reviewerClass, 
+                        rating: rating, 
+                        reviewText: reviewComments, 
+                        timestamp: timeSubmitted
+                    }).then(() => {
+                        setIsSubmitted(true);
+                        setFormSavingError(false);
+                        toast.success("Successfully wrote and submitted the review.");
+                    }, () => {
+                        setFormSavingError(true);
+                        setIsSubmitted(false);
+                        toast.error("Unsuccessfully submitted the review. Please try again!");
+                    });
+                }
+            }}>
             <h1 className="mb-4 review-header">Write a Review</h1>
 
             <div className="my-3">
@@ -137,13 +149,13 @@ export default function WriteReview()
             </div>
 
             <div className="my-3">
-                <InputText label="Reviewer First Name" id="reviewer-first-name" value={reviewerFirstName} onChange={(event) => {
+                <InputText label="Reviewer First Name" id="reviewer-first-name" value={reviewerFirstName} validationError={reviewerFirstNameError} onChange={(event) => {
                     setReviewerFirstName(event.target.value);
                 }} />
             </div>
 
             <div className="my-3">
-                <InputText label="Reviewer Last Name" id="reviewer-last-name" value={reviewerLastName} onChange={(event) => {
+                <InputText label="Reviewer Last Name" id="reviewer-last-name" value={reviewerLastName} validationError={reviewerLastNameError}onChange={(event) => {
                     setReviewerLastName(event.target.value);
                 }} />
             </div>
@@ -197,9 +209,7 @@ export default function WriteReview()
                 <textarea className="form-control" id="review-comments" required rows="3" value={reviewComments} onChange={(event) => {
                     setReviewComments(event.target.value);
                 }}/>  
-                <div className="invalid-feedback">
-                    Please type a review.
-                </div>
+                {reviewCommentsError && <div className="text-danger">Review comments must be at least 5 characters long.</div>}
             </div>
 
             <button type="submit" className="btn btn-primary my-3 btn-color" onClick={()=> {
@@ -213,7 +223,7 @@ export default function WriteReview()
                 Reset
             </button>
 
-            {isError ? <div className="mb-3 text-danger">Error submitting the form. Please try again!</div>: <></>}
+            {formSavingError ? <div className="mb-3 text-danger">Error submitting the form. Please try again!</div>: <></>}
 
         </form>)}
         <ToastContainer position="bottom-left" autoClose={5000} />

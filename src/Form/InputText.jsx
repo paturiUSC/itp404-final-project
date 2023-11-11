@@ -7,9 +7,9 @@ export default function InputText(props) {
           <input type="text" className="form-control" id={props.id} required value={props.value} placeholder={props.placeholder} onChange={(event) => {
             props.onChange(event);
           }}/>
-          <div className="invalid-feedback">
-            Please choose a {props.label}.
-          </div>
+          {props.validationError && <div className="text-danger">
+            Please have a {props.label.toLowerCase()} without special characters or numbers.
+          </div>}
         </>
     );
 }
