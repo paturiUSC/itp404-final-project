@@ -31,3 +31,40 @@ export function deleteReview(reviewId) {
         }
       )
 }
+
+export function fetchListings() {
+    return fetch(`${baseUrl}/listings`
+    ).then((response) => {
+        return response.json();
+    })
+}
+
+export function fetchBookmarkedListings() {
+    return fetch(
+        `${baseUrl}/listings`
+      ).then((response) => {
+        return response.json();
+      }).then((listings) => {
+        const correctListings = listings.filter((listing) => {
+          return listing.bookmarked === true;
+        })
+
+        return correctListings;
+      })
+}
+
+export function fetchListingById(listingId) {
+    return fetch(
+        `${baseUrl}/listings/${listingId}?_embed=reviews`
+      ).then((response) => {
+        return response.json();
+      })
+}
+
+export function fetchReviews() {
+    return fetch(
+        `${baseUrl}/reviews`
+      ).then((response) => {
+        return response.json();
+      }) 
+}

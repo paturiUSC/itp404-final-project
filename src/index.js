@@ -14,8 +14,7 @@ import WriteReview from './Routes/WriteReview';
 import Listings from './Routes/Listings';
 import CompleteListing from './Routes/CompleteListing';
 import Admin from './Routes/Admin';
-
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
+import { fetchBookmarkedListings, fetchListingById, fetchListings, fetchReviews } from './api';
 
 const router = createBrowserRouter([
   {
@@ -31,61 +30,35 @@ const router = createBrowserRouter([
         path: "/listings", 
         element: <Listings />, 
         loader() {
-          return fetch(
-            `${baseUrl}/listings`
-          ).then((response) => {
-            return response.json();
-          })
+          return fetchListings();
         }
       },
       {
         path: "/bookmarks", 
         element: <Bookmarks />, 
-        loader(loaderData) {
-          return fetch(
-            `${baseUrl}/listings`
-          ).then((response) => {
-            return response.json();
-          }).then((listings) => {
-            const correctListings = listings.filter((listing) => {
-              return listing.bookmarked === true;
-            })
-
-            return correctListings;
-          })
+        loader() {
+          return fetchBookmarkedListings();
         }
       }, 
       {
         path: "/writeReview", 
         element: <WriteReview />, 
         loader() {
-          return fetch(
-            `${baseUrl}/listings`
-          ).then((response) => {
-            return response.json();
-          })
+          return fetchListings();
         }
       }, 
       {
         path: "/listings/:listingId", 
         element: <CompleteListing />, 
         loader(loaderData) {
-          return fetch(
-            `${baseUrl}/listings/${loaderData.params.listingId}?_embed=reviews`
-          ).then((response) => {
-            return response.json();
-          })
+          return fetchListingById(loaderData.params.listingId);
         }
       }, 
       {
         path: "/admin", 
         element: <Admin />,
-        loader(loaderData) {
-          return fetch(
-            `${baseUrl}/reviews`
-          ).then((response) => {
-            return response.json();
-          }) 
+        loader() {
+          return fetchReviews();
         }
       }
     ]

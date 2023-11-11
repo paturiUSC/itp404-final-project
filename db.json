@@ -24,7 +24,7 @@
       "inUnitLaundry": true,
       "address": "10573 W Pico Blvd, Los Angeles, CA 90064",
       "propertyImageURL": "https://lirp.cdn-website.com/951f8cd2/dms3rep/multi/opt/Living+Room+3-432w.jpeg",
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "id": "3",
@@ -105,16 +105,6 @@
       "id": "zv7InJh"
     },
     {
-      "listingId": "",
-      "reviewerFirstName": "dfanakdf",
-      "reviewerLastName": "dfksajf",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "3",
-      "timestamp": 1699743022842,
-      "id": "NYM48x6"
-    },
-    {
       "listingId": "1",
       "reviewerFirstName": "dasjflas",
       "reviewerLastName": "jdfklsfjlks",
@@ -123,16 +113,6 @@
       "reviewText": "f",
       "timestamp": 1699743036426,
       "id": "5yAmyq2"
-    },
-    {
-      "listingId": "1",
-      "reviewerFirstName": "",
-      "reviewerLastName": "",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "",
-      "timestamp": 1699743457423,
-      "id": "jUOD-YI"
     },
     {
       "listingId": "1",
@@ -153,16 +133,6 @@
       "reviewText": "@@@@",
       "timestamp": 1699744497214,
       "id": "-UNqBo6"
-    },
-    {
-      "listingId": "",
-      "reviewerFirstName": "fdlkjfdsl",
-      "reviewerLastName": "dskfjlkfa",
-      "reviewerClass": "sophomore",
-      "rating": "5",
-      "reviewText": "dsaflkdjflksadlfsa",
-      "timestamp": 1699744525365,
-      "id": "o7KxE_z"
     },
     {
       "listingId": "1",
