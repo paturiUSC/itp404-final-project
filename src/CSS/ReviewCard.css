@@ -1,0 +1,10 @@
+.link-without-underline {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.review-text-hover:hover {
+  text-decoration: underline;
+  color: #a020f0;
+}
