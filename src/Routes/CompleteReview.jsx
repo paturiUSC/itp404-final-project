@@ -108,6 +108,13 @@ export default function CompleteReview() {
         information={[
           { "Property Name": reviewedPropertyInformation?.title },
           { "Property Address": reviewedPropertyInformation?.address },
+          {
+            Configuration:
+              reviewedPropertyInformation?.bedrooms +
+              "b" +
+              reviewedPropertyInformation?.bathrooms +
+              "b",
+          },
         ]}
         activeAccordionKey={activeAccordionKeyForReviewedPropertyInfo}
         onSelect={(returnedActiveAccordionKey) => {
