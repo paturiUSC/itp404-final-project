@@ -167,109 +167,108 @@ export default function WriteReview() {
           onSubmit={(event) => {
             event.preventDefault();
 
-            if (reviewComments.length <= 5) {
-              setReviewCommentsError(true);
-              return;
-            } else {
-              setReviewCommentsError(false);
-            }
+            // if (reviewComments.length <= 5) {
+            //   setReviewCommentsError(true);
+            //   return;
+            // } else {
+            //   setReviewCommentsError(false);
+            // }
 
-            if (
-              specialCharacters.test(reviewerFirstName) ||
-              reviewerFirstName.length <= 1
-            ) {
-              setReviewerFirstNameError(true);
-              return;
-            } else {
-              setReviewerFirstNameError(false);
-            }
+            // if (
+            //   specialCharacters.test(reviewerFirstName) ||
+            //   reviewerFirstName.length <= 1
+            // ) {
+            //   setReviewerFirstNameError(true);
+            //   return;
+            // } else {
+            //   setReviewerFirstNameError(false);
+            // }
 
-            if (
-              specialCharacters.test(reviewerLastName) ||
-              reviewerLastName.length <= 1
-            ) {
-              setReviewerLastNameError(true);
-              return;
-            } else {
-              setReviewerLastNameError(false);
-            }
+            // if (
+            //   specialCharacters.test(reviewerLastName) ||
+            //   reviewerLastName.length <= 1
+            // ) {
+            //   setReviewerLastNameError(true);
+            //   return;
+            // } else {
+            //   setReviewerLastNameError(false);
+            // }
 
-            reviewComments.length <= 5
-              ? setReviewCommentsError(true)
-              : setReviewCommentsError(false);
+            // reviewComments.length <= 5
+            //   ? setReviewCommentsError(true)
+            //   : setReviewCommentsError(false);
 
-            specialCharacters.test(reviewerFirstName) ||
-            reviewerFirstName.length <= 1
-              ? setReviewerFirstNameError(true)
-              : setReviewerFirstNameError(false);
+            // specialCharacters.test(reviewerFirstName) ||
+            // reviewerFirstName.length <= 1
+            //   ? setReviewerFirstNameError(true)
+            //   : setReviewerFirstNameError(false);
 
-            specialCharacters.test(reviewerLastName) ||
-            reviewerLastName.length <= 1
-              ? setReviewerLastNameError(true)
-              : setReviewerLastNameError(false);
+            // specialCharacters.test(reviewerLastName) ||
+            // reviewerLastName.length <= 1
+            //   ? setReviewerLastNameError(true)
+            //   : setReviewerLastNameError(false);
 
-            console.log("test");
-            console.log(specialCharacters.test(reviewerFirstName));
-            console.log(reviewerFirstName.length <= 1);
-            console.log(
-              specialCharacters.test(reviewerFirstName) ||
-                reviewerFirstName.length <= 1
-            );
+            // console.log("test");
+            // console.log(specialCharacters.test(reviewerFirstName));
+            // console.log(reviewerFirstName.length <= 1);
+            // console.log(
+            //   specialCharacters.test(reviewerFirstName) ||
+            //     reviewerFirstName.length <= 1
+            // );
 
-            console.log("test2");
-            console.log(specialCharacters.test(reviewerLastName));
-            console.log(reviewerLastName.length <= 1);
-            console.log(
-              specialCharacters.test(reviewerLastName) ||
-                reviewerLastName.length <= 1
-            );
+            // console.log("test2");
+            // console.log(specialCharacters.test(reviewerLastName));
+            // console.log(reviewerLastName.length <= 1);
+            // console.log(
+            //   specialCharacters.test(reviewerLastName) ||
+            //     reviewerLastName.length <= 1
+            // );
 
-            console.log("review comments");
-            // console.log(reviewCommentsError);
-            console.log(reviewComments);
-            // console.log(reviewerFirstNameError);
-            // console.log(reviewerLastNameError);
-            console.log("first name");
+            // console.log("review comments");
+            // // console.log(reviewCommentsError);
             // console.log(reviewComments);
-            // console.log(reviewerFirstNameError);
-            console.log(reviewerFirstName);
-            console.log("last name");
-            console.log(reviewerLastName);
-            // console.log(reviewerLastNameError);
+            // // console.log(reviewerFirstNameError);
+            // // console.log(reviewerLastNameError);
+            // console.log("first name");
+            // // console.log(reviewComments);
+            // // console.log(reviewerFirstNameError);
+            // console.log(reviewerFirstName);
+            // console.log("last name");
+            // console.log(reviewerLastName);
+            // // console.log(reviewerLastNameError);
 
-            console.log(!reviewCommentsError);
-            console.log(!reviewerFirstNameError);
-            console.log(!reviewerLastNameError);
+            // console.log(!reviewCommentsError);
+            // console.log(!reviewerFirstNameError);
+            // console.log(!reviewerLastNameError);
 
-            if (
-              reviewCommentsError &&
-              reviewerFirstNameError &&
-              reviewerLastNameError
-            ) {
-              console.log("here");
-              saveReview({
-                listingId: propertyId,
-                reviewerFirstName: reviewerFirstName,
-                reviewerLastName: reviewerLastName,
-                reviewerClass: reviewerClass,
-                rating: rating,
-                reviewText: reviewComments,
-                timestamp: timeSubmitted,
-              }).then(
-                () => {
-                  setIsSubmitted(true);
-                  setFormSavingError(false);
-                  toast.success("Successfully wrote and submitted the review.");
-                },
-                () => {
-                  setFormSavingError(true);
-                  setIsSubmitted(false);
-                  toast.error(
-                    "Unsuccessfully submitted the review. Please try again!"
-                  );
-                }
-              );
-            }
+            // if (
+            //   reviewCommentsError &&
+            //   reviewerFirstNameError &&
+            //   reviewerLastNameError
+            // ) {
+            //   console.log("here");
+            saveReview({
+              listingId: propertyId,
+              reviewerFirstName: reviewerFirstName,
+              reviewerLastName: reviewerLastName,
+              reviewerClass: reviewerClass,
+              rating: rating,
+              reviewText: reviewComments,
+              timestamp: timeSubmitted,
+            }).then(
+              () => {
+                setIsSubmitted(true);
+                setFormSavingError(false);
+                toast.success("Successfully wrote and submitted the review.");
+              },
+              () => {
+                setFormSavingError(true);
+                setIsSubmitted(false);
+                toast.error(
+                  "Unsuccessfully submitted the review. Please try again!"
+                );
+              }
+            );
           }}
         >
           <h1 className="mb-4 review-header">Write a Review</h1>
