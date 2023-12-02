@@ -5,7 +5,7 @@ import { saveBookmark } from "../api";
 import "../CSS/Listings.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import InputText from "../Form/InputText";
+import InputText from "../InputComponents/InputText";
 
 export default function Listings() {
   const loadedListings = useLoaderData();
