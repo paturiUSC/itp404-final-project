@@ -38,7 +38,7 @@ export default function CompleteReview() {
     fetchReviewedPropertyInformation();
     document.title = `UniNest Review: ${loadedReview.reviewerFirstName} ${
       loadedReview.reviewerLastName
-    } Written On ${convertMillisecondsToReadableDate(loadedReview.timestamp)}`;
+    } Written on ${convertMillisecondsToReadableDate(loadedReview.timestamp)}`;
   }, [loadedReview.listingId]);
 
   function convertMillisecondsToReadableDate(timestamp) {
