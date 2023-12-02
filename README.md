@@ -1,7 +1,5 @@
 # To-Do
 
-- Fix form validation
-- Document title (added)
 - Unit Tests
 
 - Add admin component to bulk delete (and toastify here)
