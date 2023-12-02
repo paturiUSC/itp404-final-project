@@ -63,6 +63,7 @@ export default function WriteReview() {
     setIsSubmitted(false);
     setTimeSubmitted(new Date().getTime());
     setFormSavingError(false);
+    setValidationError({});
   }
 
   function getReviewedPropertyTitle(propertyId) {
