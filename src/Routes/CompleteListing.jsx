@@ -7,6 +7,7 @@ import ReviewCard from "./ReviewCard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import InformationAccordion from "./InformationAccordion";
+import { splitAddress } from "../widelyUsedFunctions";
 
 export default function CompleteListing() {
   const loadedListing = useLoaderData();
@@ -17,19 +18,6 @@ export default function CompleteListing() {
   const [bookmark, setBookmark] = useState(listing.bookmarked);
 
   const [activeAccordionKey, setActiveAccordionKey] = useState();
-
-  function splitAddress() {
-    const splitAddressInfo = [];
-
-    const firstCommaIndex = listing.address.indexOf(",");
-
-    const addressLine = listing.address.substring(0, firstCommaIndex);
-    splitAddressInfo.push(addressLine);
-    const cityStateZip = listing.address.substring(firstCommaIndex + 1);
-    splitAddressInfo.push(cityStateZip);
-
-    return splitAddressInfo;
-  }
 
   useEffect(() => {
     document.title = `UniNest Listing: ${listing.title} At ${listing.address}`;
@@ -64,8 +52,8 @@ export default function CompleteListing() {
           <h2 id="details" className="mt-4">
             {listing.title}
           </h2>
-          <p className="address-spacing">{splitAddress()[0]}</p>
-          <p>{splitAddress()[1]}</p>
+          <p className="address-spacing">{splitAddress(listing.address)[0]}</p>
+          <p>{splitAddress(listing.address)[1]}</p>
           <div className="d-flex flex-column">
             <div className="row">
               <div className="col-7">

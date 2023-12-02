@@ -41,28 +41,7 @@ export default function Listings() {
           }
         }}
       />
-      {/* <input
-        className="w-100"
-        type="text"
-        value={userInput}
-        placeholder="Search Property By Address..."
-        onChange={(event) => {
-          const identifiedUserInput = event.target.value;
 
-          setUserInput(identifiedUserInput);
-
-          if (identifiedUserInput !== "") {
-            const newFilteredListings = loadedListings.filter((listing) => {
-              return listing.address
-                .toLowerCase()
-                .includes(identifiedUserInput.toLowerCase());
-            });
-            setFilteredListings(newFilteredListings);
-          } else {
-            setFilteredListings(loadedListings);
-          }
-        }}
-      /> */}
       <div className="row">
         {filteredListings.map((listing) => (
           <ListingPreview
