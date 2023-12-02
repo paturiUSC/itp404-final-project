@@ -1,6 +1,6 @@
 import { useLoaderData, NavLink } from "react-router-dom";
 import "../CSS/CompleteListing.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowLeftCircle } from "react-bootstrap-icons";
 import { deleteReview, saveBookmark } from "../api";
 import ReviewCard from "./ReviewCard";
@@ -30,6 +30,10 @@ export default function CompleteListing() {
 
     return splitAddressInfo;
   }
+
+  useEffect(() => {
+    document.title = `UniNest Listing: ${listing.title} At ${listing.address}`;
+  }, []);
 
   return (
     <div>

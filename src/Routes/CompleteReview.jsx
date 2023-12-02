@@ -36,6 +36,9 @@ export default function CompleteReview() {
     };
 
     fetchReviewedPropertyInformation();
+    document.title = `UniNest Review: ${loadedReview.reviewerFirstName} ${
+      loadedReview.reviewerLastName
+    } Written On ${convertMillisecondsToReadableDate(loadedReview.timestamp)}`;
   }, [loadedReview.listingId]);
 
   function convertMillisecondsToReadableDate(timestamp) {
@@ -73,6 +76,10 @@ export default function CompleteReview() {
 
     return starIcons;
   }
+
+  //   useEffect(() => {
+  // document.title = `UniNest Review: ${loadedReview.reviewerFirstName} ${loadedReview.reviewerLastName} `;
+  //   }, []);
 
   return (
     <div>

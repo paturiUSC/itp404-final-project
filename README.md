@@ -1,9 +1,7 @@
 # To-Do
 
-- Satisfy generic component task (done)
 - Fix form validation
-- add second route (done)
-- Document title
+- Document title (added)
 - Unit Tests
 
 - Add admin component to bulk delete (and toastify here)
