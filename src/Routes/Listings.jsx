@@ -10,7 +10,7 @@ import InputText from "../InputComponents/InputText";
 
 export default function Listings() {
   const loadedListings = useLoaderData();
-  console.log(loadedListings);
+  // console.log(loadedListings);
 
   const [filteredListings, setFilteredListings] = useState(
     loadedListings || []

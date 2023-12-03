@@ -1,6 +1,6 @@
 import validateReviewInput from "../validateInput";
 
-test("the function output, which should be key-value pairs, given invalid input", () => {
+test("identifying that the validate function outputs key-value pairs given invalid input", () => {
   const reviewSpecialCharactersAndNumbersResult = validateReviewInput(
     "@2$",
     "D!e",

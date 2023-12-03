@@ -82,7 +82,7 @@ const MockedDataProvider = ({ children }) => {
   return <BrowserRouter>{children}</BrowserRouter>;
 };
 
-test("unbookmarking a bookmarked property", () => {
+test("unbookmarking an already bookmarked property", () => {
   const { getByTestId, getAllByTestId } = render(
     <MockedDataProvider>
       <Bookmarks />

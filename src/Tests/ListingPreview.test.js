@@ -88,7 +88,7 @@ test("bookmarking Listing Preview component that is not yet bookmarked", () => {
   expect(bookmarkButtonElement).toHaveTextContent("unbookmarked");
 });
 
-test("unbookmarking Listing Preview component that is already bookmarked", () => {
+test("unbookmarking a Listing Preview component that is already bookmarked", () => {
   const id = 1;
   const bookmarked = true;
   const address = "123 Main St, Los Angeles, CA 90007";

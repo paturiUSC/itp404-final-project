@@ -4,7 +4,7 @@ import {
   convertMillisecondsToReadableDate,
 } from "../widelyUsedFunctions";
 
-test("the splitting of an address into 2 different address strings", () => {
+test("the splitting of an address into 2 different strings", () => {
   const splitAddressResultList = splitAddress(
     "1437 W. 36th Pl, Los Angeles, CA 90007"
   );
@@ -13,7 +13,7 @@ test("the splitting of an address into 2 different address strings", () => {
   expect(splitAddressResultList[1]).toEqual("Los Angeles, CA 90007");
 });
 
-test("the generation of stars dependent on a rating of 3", () => {
+test("the generation of 3 stars dependent on a rating of 3", () => {
   const generate3StarRating = generateStarIcons(3);
 
   const filledStarClassName = "bi-star-fill";
@@ -37,7 +37,7 @@ test("the generation of stars dependent on a rating of 3", () => {
   expect(unfilledStarCount).toEqual(2);
 });
 
-test("the generation of stars dependent on a rating of 4.5", () => {
+test("the generation of 4.5 stars dependent on a rating of 4.5", () => {
   const generate3StarRating = generateStarIcons(4.5);
 
   const filledStarClassName = "bi-star-fill";

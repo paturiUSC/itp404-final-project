@@ -5,6 +5,7 @@ export default function InputText(props) {
         {props.label}
       </label>
       <input
+        data-testid="input-text"
         type="text"
         className="form-control"
         id={props.id}

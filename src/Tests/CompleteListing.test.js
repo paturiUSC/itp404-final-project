@@ -96,7 +96,7 @@ const MockedDataProviderUnbookmarkedProperty = ({ children }) => {
   return <BrowserRouter>{children}</BrowserRouter>;
 };
 
-test("sorting of reviews in descending order based on the time the review was submitted", () => {
+test("sorting of the reviews in descending order based on the time the review was submitted", () => {
   const { getAllByTestId } = render(
     <MockedDataProviderBookmarkedProperty>
       <CompleteListing />
