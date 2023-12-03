@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ListingPreview from "./ListingPreview";
+import { BookmarkFill, Bookmark } from "react-bootstrap-icons";
 import { saveBookmark } from "../api";
 import "../CSS/Listings.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,7 +12,9 @@ export default function Listings() {
   const loadedListings = useLoaderData();
   console.log(loadedListings);
 
-  const [filteredListings, setFilteredListings] = useState(loadedListings);
+  const [filteredListings, setFilteredListings] = useState(
+    loadedListings || []
+  );
   const [userInput, setUserInput] = useState("");
 
   useEffect(() => {
@@ -42,9 +45,10 @@ export default function Listings() {
         }}
       />
 
-      <div className="row">
+      <div className="row" data-testid="listings-preview">
         {filteredListings.map((listing) => (
           <ListingPreview
+            data-testid="listing-preview"
             key={listing.id}
             id={listing.id}
             address={listing.address}
@@ -54,6 +58,8 @@ export default function Listings() {
             propertyImg={listing.propertyImageURL}
             distance={listing.distanceFromVillage}
             bookmarked={listing.bookmarked}
+            bookmarkedIcon={<BookmarkFill />}
+            unbookmarkedIcon={<Bookmark />}
             onClick={(listingId, bookmark) => {
               const updatedBookmarkData = {
                 bookmarked: bookmark ? false : true,

@@ -6,7 +6,7 @@ export function splitAddress(address) {
   const addressLine = address.substring(0, firstCommaIndex);
   splitAddressInfo.push(addressLine);
   const cityStateZip = address.substring(firstCommaIndex + 1);
-  splitAddressInfo.push(cityStateZip);
+  splitAddressInfo.push(cityStateZip.trim());
 
   return splitAddressInfo;
 }

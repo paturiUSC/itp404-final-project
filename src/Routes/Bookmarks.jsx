@@ -1,6 +1,7 @@
 import { useLoaderData, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ListingPreview from "./ListingPreview";
+import { BookmarkFill, Bookmark } from "react-bootstrap-icons";
 import { saveBookmark } from "../api";
 import "../CSS/Bookmarks.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Bookmarks() {
   const loadedListings = useLoaderData();
-  console.log(loadedListings);
+  // console.log(loadedListings);
 
   const [listings, setListings] = useState(loadedListings);
 
@@ -17,7 +18,10 @@ export default function Bookmarks() {
   }, []);
 
   return (
-    <div className="container custom-font-bookmarks">
+    <div
+      className="container custom-font-bookmarks"
+      data-testid="bookmarks-listings"
+    >
       {listings.length > 0 ? (
         <div className="row">
           {listings.map((listing) => (
@@ -31,6 +35,8 @@ export default function Bookmarks() {
               propertyImg={listing.propertyImageURL}
               distance={listing.distanceFromVillage}
               bookmarked={listing.bookmarked}
+              bookmarkedIcon={<BookmarkFill />}
+              unbookmarkedIcon={<Bookmark />}
               onClick={(listingId, bookmark) => {
                 const updatedBookmarkData = {
                   bookmarked: listing.bookmarked ? false : true,

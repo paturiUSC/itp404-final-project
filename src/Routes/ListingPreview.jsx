@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../CSS/ListingPreview.css";
-import { BookmarkFill, Bookmark } from "react-bootstrap-icons";
 import { useState } from "react";
 import { splitAddress } from "../widelyUsedFunctions";
 
@@ -8,7 +7,10 @@ export default function ListingPreview(props) {
   const [bookmark, setBookmarked] = useState(props.bookmarked);
 
   return (
-    <div className="mt-4 col-sm-12 col-md-6 col-lg-4">
+    <div
+      className="mt-4 col-sm-12 col-md-6 col-lg-4"
+      data-testid={`listing-preview`}
+    >
       <div className="card fixed-card">
         <Link
           to={`/listings/${props.id}`}
@@ -22,20 +24,34 @@ export default function ListingPreview(props) {
           <div className="card-body d-flex flex-column first-body">
             <div className="d-flex justify-content-between">
               <div>
-                <p className="card-title custom-link">
+                <p
+                  className="card-title custom-link"
+                  data-testid="address-first-part"
+                >
                   {splitAddress(props.address)[0]}
                 </p>
-                <p className="card-title custom-link">
+                <p
+                  className="card-title custom-link"
+                  data-testid="address-second-part"
+                >
                   {splitAddress(props.address)[1]}
                 </p>
               </div>
               <p className="card-title custom-link other-description">
-                <span className="other-description-info">${props.rent}</span>
+                <span
+                  className="other-description-info"
+                  data-testid="property-rent"
+                >
+                  ${props.rent}
+                </span>
               </p>
             </div>
             <p className="card-text other-description">
               Distance From Village:{" "}
-              <span className="other-description-info">
+              <span
+                className="other-description-info"
+                data-testid="property-distance-in-miles"
+              >
                 {props.distance} mi
               </span>
             </p>
@@ -43,7 +59,10 @@ export default function ListingPreview(props) {
         </Link>
         <div className="second-body card-body d-flex justify-content-between align-items-center">
           <div>
-            <p className="card-text other-description ">
+            <p
+              className="card-text other-description"
+              data-testid="property-bed-bath"
+            >
               Bed:{" "}
               <span className="other-description-info">{props.bedrooms}</span> |
               Bath:{" "}
@@ -51,6 +70,7 @@ export default function ListingPreview(props) {
             </p>
           </div>
           <button
+            data-testid={`bookmark-button-${props.id}`}
             type="submit"
             className="btn"
             onClick={() => {
@@ -58,7 +78,7 @@ export default function ListingPreview(props) {
               setBookmarked(!bookmark);
             }}
           >
-            {bookmark ? <BookmarkFill /> : <Bookmark />}
+            {bookmark ? props.bookmarkedIcon : props.unbookmarkedIcon}
           </button>
         </div>
       </div>

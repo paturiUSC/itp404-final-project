@@ -7,7 +7,7 @@ import {
 
 export default function ReviewCard(props) {
   return (
-    <div key={props.id} className="card mt-2 mb-2">
+    <div data-testid="review-card" key={props.id} className="card mt-2 mb-2">
       <div className="card-body">
         <Link to={`/reviews/${props.id}`} className="link-without-underline">
           <div className="row">
@@ -37,7 +37,10 @@ export default function ReviewCard(props) {
               to={`/reviews/${props.id}`}
               className="link-without-underline"
             >
-              <p className="card-text review-written review-text-hover">
+              <p
+                data-testid="review-timestamp"
+                className="card-text review-written review-text-hover"
+              >
                 {convertMillisecondsToReadableDate(props.timestamp)}
               </p>
             </Link>
@@ -45,6 +48,7 @@ export default function ReviewCard(props) {
           {props.button ? (
             <div className="col-md-6 text-md-end">
               <button
+                data-testid={`review-card-${props.id}-delete`}
                 id="delete"
                 className="btn btn-secondary btn-color"
                 onClick={() => {

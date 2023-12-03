@@ -1,4 +1,4 @@
-import validateReviewInput from "./validateInput";
+import validateReviewInput from "../validateInput";
 
 test("the function output, which should be key-value pairs, given invalid input", () => {
   const reviewSpecialCharactersAndNumbersResult = validateReviewInput(

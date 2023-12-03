@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 import "../CSS/Admin.css";
-import Checkbox from "./Checkbox";
+// import Checkbox from "./Checkbox";
 import { deleteReview } from "../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

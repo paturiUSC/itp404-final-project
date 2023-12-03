@@ -13,7 +13,6 @@ export default function CompleteListing() {
   const loadedListing = useLoaderData();
 
   const [listing, setListing] = useState(loadedListing);
-  console.log(listing);
 
   const [bookmark, setBookmark] = useState(listing.bookmarked);
 
@@ -21,7 +20,7 @@ export default function CompleteListing() {
 
   useEffect(() => {
     document.title = `UniNest Listing: ${listing.title} At ${listing.address}`;
-  }, []);
+  }, [listing.address, listing.title]);
 
   return (
     <div>
@@ -158,6 +157,7 @@ export default function CompleteListing() {
             )}
           </div>
           <button
+            data-testid="bookmark-button"
             className="btn btn-secondary btn-color btn-lg mt-4 mb-5"
             id="bookmark"
             onClick={() => {
@@ -181,7 +181,7 @@ export default function CompleteListing() {
               setBookmark(bookmark ? false : true);
             }}
           >
-            Bookmark
+            {bookmark ? "Un-bookmark" : "Bookmark"}
           </button>
         </div>
       </div>
