@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 import "../CSS/Admin.css";
-// import Checkbox from "./Checkbox";
+import Checkbox from "./Checkbox";
 import { deleteReview } from "../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,10 +11,22 @@ export default function Admin() {
   const loadedReviews = useLoaderData();
   const [allReviews, setAllReviews] = useState(loadedReviews);
   const [selectedReviews, setSelectedReviews] = useState([]);
+  const [selectAllStatus, setSelectAllStatus] = useState(false);
 
   useEffect(() => {
     document.title = `UniNest: Admin`;
   }, []);
+
+  function changeSelectedReviewsToAllReviewsOrNoReviews() {
+    if (!selectAllStatus) {
+      const allSelectedReviews = allReviews.map(
+        (selectedReview) => selectedReview.id
+      );
+      setSelectedReviews(allSelectedReviews);
+    } else {
+      setSelectedReviews([]);
+    }
+  }
 
   return (
     <div className="container-fluid">
@@ -22,22 +34,34 @@ export default function Admin() {
         <h1>Admin Page</h1>
 
         <div className="mt-3 mb-5">
+          <div className="mb-3">
+            <Checkbox
+              label=" All"
+              checked={selectAllStatus}
+              isIndeterminate={
+                selectedReviews.length >= 1 &&
+                selectedReviews.length < allReviews.length
+              }
+              onChange={() => {
+                changeSelectedReviewsToAllReviewsOrNoReviews();
+                setSelectAllStatus(!selectAllStatus);
+              }}
+            />
+          </div>
           <button
             className="btn btn-danger mr-4"
             disabled={selectedReviews.length === 0}
             onClick={() => {
+              setSelectAllStatus(false);
               const deletePromises = selectedReviews.map((selectedReview) => {
-                console.log("Selected Review", selectedReview);
                 deleteReview(selectedReview);
+                return selectedReview;
               });
-
-              console.log(selectedReviews);
 
               Promise.all(deletePromises).then(
                 () => {
                   setAllReviews(
                     allReviews.filter((review) => {
-                      console.log("Filtering out", review.id);
                       return !selectedReviews.includes(review.id);
                     })
                   );
@@ -47,7 +71,6 @@ export default function Admin() {
                   );
                 },
                 (error) => {
-                  console.log(error);
                   toast.error(
                     "All selected messages have not been successfully deleted. Please try again!"
                   );
