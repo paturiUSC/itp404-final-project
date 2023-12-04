@@ -11,7 +11,7 @@
       "inUnitLaundry": false,
       "address": "325 W Adams Blvd, Los Angeles, CA 90007",
       "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "id": "2",
@@ -73,6 +73,16 @@
       "reviewText": "Too many noise complaints that were unaddressed!",
       "timestamp": 1701674673970,
       "id": 2
+    },
+    {
+      "listingId": "3",
+      "reviewerFirstName": "Kiki",
+      "reviewerLastName": "Tiki",
+      "reviewerClass": "1st Year Master's",
+      "rating": "4",
+      "reviewText": "Affordable rent and somewhat decent quick response time to service requests.",
+      "timestamp": 1701674835754,
+      "id": 3
     }
   ]
 }
