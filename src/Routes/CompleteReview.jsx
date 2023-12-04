@@ -10,7 +10,6 @@ import {
 
 export default function CompleteReview() {
   const loadedReview = useLoaderData();
-  console.log(loadedReview);
 
   const [
     activeAccordionKeyForReviewerInfo,

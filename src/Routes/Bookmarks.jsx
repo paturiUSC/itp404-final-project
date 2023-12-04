@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Bookmarks() {
   const loadedListings = useLoaderData();
-  // console.log(loadedListings);
 
   const [listings, setListings] = useState(loadedListings);
 

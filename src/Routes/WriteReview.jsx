@@ -15,7 +15,6 @@ import validateReviewInput from "../validateInput";
 
 export default function WriteReview() {
   const loadedListings = useLoaderData();
-  console.log(loadedListings);
 
   let validateReviewInformationCheckResult = {};
 
