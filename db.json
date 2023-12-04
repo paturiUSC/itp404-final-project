@@ -11,7 +11,7 @@
       "inUnitLaundry": false,
       "address": "325 W Adams Blvd, Los Angeles, CA 90007",
       "propertyImageURL": "https://media.apts247.info/e7/e7442b2fab3e4435889200f63d4e088d/hero_shot/community/Lorenzo.jpg",
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "id": "2",
@@ -24,7 +24,7 @@
       "inUnitLaundry": true,
       "address": "10573 W Pico Blvd, Los Angeles, CA 90064",
       "propertyImageURL": "https://lirp.cdn-website.com/951f8cd2/dms3rep/multi/opt/Living+Room+3-432w.jpeg",
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "id": "3",
@@ -55,34 +55,24 @@
   ],
   "reviews": [
     {
-      "id": "1",
       "listingId": "1",
-      "reviewerFirstName": "Jack",
-      "reviewerLastName": "Smith",
-      "reviewerClass": "Sophomore",
-      "rating": 3.5,
-      "reviewText": "Great location but there are no laundry facilities. Not overly pricey for the luxury.",
-      "timestamp": 1531101239011
-    },
-    {
-      "id": "2",
-      "listingId": "2",
-      "reviewerFirstName": "Jack",
-      "reviewerLastName": "Son",
-      "reviewerClass": "Junior",
-      "rating": 5,
-      "reviewText": "Spacious house with a beautiful view of downtown! Cost-effective!",
-      "timestamp": 1636019754000
-    },
-    {
-      "id": "3",
-      "listingId": "1",
-      "reviewerFirstName": "Louie",
-      "reviewerLastName": "Smith",
+      "reviewerFirstName": "Abhijay",
+      "reviewerLastName": "Paturi",
       "reviewerClass": "Senior",
-      "rating": 4,
-      "reviewText": "No in-unit laundry but very close to campus! Good property management too.",
-      "timestamp": 1639019757023
+      "rating": "5",
+      "reviewText": "Respond quickly to service requests.",
+      "timestamp": 1701674632747,
+      "id": 1
+    },
+    {
+      "listingId": "1",
+      "reviewerFirstName": "Rara",
+      "reviewerLastName": "True",
+      "reviewerClass": "Sophomore",
+      "rating": "2.5",
+      "reviewText": "Too many noise complaints that were unaddressed!",
+      "timestamp": 1701674673970,
+      "id": 2
     }
   ]
 }
