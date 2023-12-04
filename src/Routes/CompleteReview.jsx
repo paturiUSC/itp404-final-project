@@ -42,7 +42,12 @@ export default function CompleteReview() {
     document.title = `UniNest Review: ${loadedReview.reviewerFirstName} ${
       loadedReview.reviewerLastName
     } Written on ${convertMillisecondsToReadableDate(loadedReview.timestamp)}`;
-  }, [loadedReview.listingId]);
+  }, [
+    loadedReview.listingId,
+    loadedReview.reviewerFirstName,
+    loadedReview.reviewerLastName,
+    loadedReview.timestamp,
+  ]);
 
   return (
     <div>

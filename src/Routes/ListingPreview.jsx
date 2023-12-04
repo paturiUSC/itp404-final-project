@@ -19,7 +19,7 @@ export default function ListingPreview(props) {
           <img
             src={props.propertyImg}
             className="card-img-top fixed-image"
-            alt="Listing Image"
+            alt={`Property Listing of ${props.address}`}
           />
           <div className="card-body d-flex flex-column first-body">
             <div className="d-flex justify-content-between">

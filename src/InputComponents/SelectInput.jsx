@@ -8,6 +8,7 @@ export default function SelectInput(props) {
         {props.label}
       </label>
       <select
+        data-testid={props.label}
         className="form-select form-select-md mb-3"
         id={`${props.label.toLowerCase()}-selection`}
         required

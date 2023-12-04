@@ -69,7 +69,7 @@ test("filtering the listings via the search bar", () => {
     mockedListings.length
   );
 
-  const searchInputText = getByTestId("input-text");
+  const searchInputText = getByTestId("listingSearch");
 
   const searchInputTextValue = "Adams";
   fireEvent.change(searchInputText, {

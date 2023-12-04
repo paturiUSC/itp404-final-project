@@ -100,7 +100,7 @@ export default function WriteReview() {
           <h5>
             <span className="mt-2 star-icons">{generateStarIcons(rating)}</span>
           </h5>
-          <p>
+          <p data-testid="property-reviewed">
             Property Reviewed:{" "}
             <span className="highlight-values">
               {getReviewedPropertyTitle(propertyId)}
@@ -181,6 +181,7 @@ export default function WriteReview() {
               Property Name
             </label>
             <select
+              data-testid="property-name"
               className="form-select form-select-md mb-3"
               id="property-selection"
               required
@@ -288,6 +289,7 @@ export default function WriteReview() {
           </div>
 
           <button
+            data-testid="submit-button"
             type="submit"
             className="btn btn-primary my-3 btn-color"
             onClick={() => {
@@ -299,6 +301,7 @@ export default function WriteReview() {
           </button>
 
           <button
+            data-testid="reset-button"
             type="button"
             className="btn btn-secondary ms-1 my-3"
             onClick={() => reset()}

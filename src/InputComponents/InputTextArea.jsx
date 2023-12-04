@@ -6,6 +6,7 @@ export default function InputTextArea(props) {
       </label>
 
       <textarea
+        data-testid={props.label}
         className="form-control"
         id={props.id}
         required
