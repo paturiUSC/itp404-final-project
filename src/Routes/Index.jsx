@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../CSS/IndexButtons.css";
-import { useEffect } from "react";
 
 export default function Index() {
   useEffect(() => {

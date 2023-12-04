@@ -1,17 +1,17 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import InputText from "../InputComponents/InputText";
-import "../CSS/WriteReview.css";
 import { saveReview } from "../api";
 import { ToastContainer, toast } from "react-toastify";
 import {
   generateStarIcons,
   convertMillisecondsToReadableDate,
 } from "../widelyUsedFunctions";
-import "react-toastify/dist/ReactToastify.css";
+import InputText from "../InputComponents/InputText";
 import SelectInput from "../InputComponents/SelectInput";
 import InputTextArea from "../InputComponents/InputTextArea";
 import validateReviewInput from "../validateInput";
+import "react-toastify/dist/ReactToastify.css";
+import "../CSS/WriteReview.css";
 
 export default function WriteReview() {
   const loadedListings = useLoaderData();
@@ -141,8 +141,6 @@ export default function WriteReview() {
               reviewerLastName,
               reviewComments
             );
-
-            console.log(validateReviewInformationCheckResult);
 
             if (
               Object.keys(validateReviewInformationCheckResult).length === 0

@@ -1,5 +1,4 @@
 import { useLoaderData, NavLink } from "react-router-dom";
-import InformationAccordion from "./InformationAccordion";
 import { useState, useEffect } from "react";
 import { fetchListingById } from "../api";
 import { ArrowLeftCircle } from "react-bootstrap-icons";
@@ -7,6 +6,7 @@ import {
   generateStarIcons,
   convertMillisecondsToReadableDate,
 } from "../widelyUsedFunctions";
+import InformationAccordion from "./InformationAccordion";
 
 export default function CompleteReview() {
   const loadedReview = useLoaderData();

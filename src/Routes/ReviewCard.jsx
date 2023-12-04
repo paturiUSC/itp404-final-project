@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import "../CSS/ReviewCard.css";
 import {
   generateStarIcons,
   convertMillisecondsToReadableDate,
 } from "../widelyUsedFunctions";
+import "../CSS/ReviewCard.css";
 
 export default function ReviewCard(props) {
   return (

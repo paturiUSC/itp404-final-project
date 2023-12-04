@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import ListingPreview from "./ListingPreview";
 import { BookmarkFill, Bookmark } from "react-bootstrap-icons";
 import { saveBookmark } from "../api";
-import "../CSS/Bookmarks.css";
 import { ToastContainer, toast } from "react-toastify";
+import "../CSS/Bookmarks.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Bookmarks() {

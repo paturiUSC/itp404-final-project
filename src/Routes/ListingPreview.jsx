@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "../CSS/ListingPreview.css";
 import { useState } from "react";
 import { splitAddress } from "../widelyUsedFunctions";
+import "../CSS/ListingPreview.css";
 
 export default function ListingPreview(props) {
   const [bookmark, setBookmarked] = useState(props.bookmarked);

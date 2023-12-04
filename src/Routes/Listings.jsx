@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ListingPreview from "./ListingPreview";
 import { BookmarkFill, Bookmark } from "react-bootstrap-icons";
 import { saveBookmark } from "../api";
-import "../CSS/Listings.css";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import ListingPreview from "./ListingPreview";
 import InputText from "../InputComponents/InputText";
+import "../CSS/Listings.css";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Listings() {
   const loadedListings = useLoaderData();

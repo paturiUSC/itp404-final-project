@@ -1,13 +1,13 @@
 import { useLoaderData, NavLink } from "react-router-dom";
-import "../CSS/CompleteListing.css";
-import React, { useState, useEffect } from "react";
 import { ArrowLeftCircle } from "react-bootstrap-icons";
 import { deleteReview, saveBookmark } from "../api";
-import ReviewCard from "./ReviewCard";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import InformationAccordion from "./InformationAccordion";
 import { splitAddress } from "../widelyUsedFunctions";
+import React, { useState, useEffect } from "react";
+import InformationAccordion from "./InformationAccordion";
+import ReviewCard from "./ReviewCard";
+import "../CSS/CompleteListing.css";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CompleteListing() {
   const loadedListing = useLoaderData();
@@ -80,7 +80,6 @@ export default function CompleteListing() {
                     ]}
                     activeAccordionKey={activeAccordionKey}
                     onSelect={(returnedActiveAccordionKey) => {
-                      console.log(returnedActiveAccordionKey);
                       setActiveAccordionKey(returnedActiveAccordionKey);
                     }}
                     message={
